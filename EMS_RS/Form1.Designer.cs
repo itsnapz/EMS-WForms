@@ -28,35 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._lblEmsRS = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // _lblEmsRS
-            // 
-            this._lblEmsRS.AutoSize = true;
-            this._lblEmsRS.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this._lblEmsRS.ForeColor = System.Drawing.Color.Crimson;
-            this._lblEmsRS.Location = new System.Drawing.Point(295, 9);
-            this._lblEmsRS.Name = "_lblEmsRS";
-            this._lblEmsRS.Size = new System.Drawing.Size(485, 54);
-            this._lblEmsRS.TabIndex = 0;
-            this._lblEmsRS.Text = "EMS Responding Service";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 561);
-            this.Controls.Add(this._lblEmsRS);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Label _lblEmsRS;
     }
 }
