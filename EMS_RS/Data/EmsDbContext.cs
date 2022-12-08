@@ -74,6 +74,7 @@ public partial class EmsDbContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(50)
                 .HasColumnName("name");
+            entity.Property(e => e.Password).HasColumnName("password");
             entity.Property(e => e.PhoneNumber).HasColumnName("phone_number");
             entity.Property(e => e.Rank)
                 .HasMaxLength(50)

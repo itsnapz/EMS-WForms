@@ -19,6 +19,8 @@ public partial class Doctor
 
     public int? HospitalId { get; set; }
 
+    public string? Password { get; set; }
+
     public virtual Hospital? Hospital { get; set; }
 
     public virtual ICollection<Respond> Responds { get; } = new List<Respond>();
