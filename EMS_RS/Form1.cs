@@ -25,11 +25,16 @@ namespace EMS_RS
             {
                 _doctors = doctors.ToList();
                 _cmbDoctors.Items.Clear();
-                foreach (var item in _doctors)
+                foreach (var doc in _doctors)
                 {
-                    _cmbDoctors.Items.Add(item.Name);
+                    _cmbDoctors.Items.Add(doc.Name);
                 }
             }
+        }
+
+        private void _btnLogin_Click(object sender, EventArgs e)
+        {
+            string inputPw = _txtPassword.Text;
         }
     }
 }
