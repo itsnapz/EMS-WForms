@@ -27,14 +27,31 @@ namespace EMS_RS
                 _cmbDoctors.Items.Clear();
                 foreach (var doc in _doctors)
                 {
-                    _cmbDoctors.Items.Add(doc.Name);
+                    _cmbDoctors.Items.Add(doc.Name + " " + doc.Surname);
                 }
             }
         }
 
         private void _btnLogin_Click(object sender, EventArgs e)
         {
-            string inputPw = _txtPassword.Text;
+            string password = _txtPassword.Text;
+            var name = _cmbDoctors.SelectedItem;
+            var user = _database.Doctors.FirstOrDefault(x => x.Name + " " + x.Surname == name);
+            if (user != null)
+            {
+                if (user.Password == password)
+                {
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("I'm sorry");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No user selected!");
+            }
         }
     }
 }
