@@ -1,4 +1,5 @@
 using EMS_RS.Data;
+using EMS_RS.Forms;
 using Microsoft.EntityFrameworkCore;
 
 namespace EMS_RS
@@ -42,6 +43,8 @@ namespace EMS_RS
                 if (user.Password == password)
                 {
                     this.Hide();
+                    MainForm MainForm = new(user);
+                    MainForm.Show();
                 }
                 else
                 {
