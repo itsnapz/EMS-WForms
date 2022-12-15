@@ -29,6 +29,7 @@ namespace EMS_RS.Controls
             _lblCarName.Text = _respond.Car.Name.ToString();
             _lblPatientBirth.Text = _respond.Patient.Birthday.ToShortDateString();
             _lblPatientPhoneNumber.Text = _respond.Patient.Phone_Number.ToString();
+
             if (_respond.Respond_Id%2==0)
             {
                 BackColor = Color.LightGray;

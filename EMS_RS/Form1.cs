@@ -19,6 +19,7 @@ namespace EMS_RS
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            _cmbDoctors.DropDownStyle = ComboBoxStyle.DropDownList;
             var doctors = _service.GetDoctors();
             if (doctors == null)
             {

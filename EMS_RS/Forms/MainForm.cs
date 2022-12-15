@@ -46,5 +46,11 @@ namespace EMS_RS.Forms
                 index++;
             }
         }
+
+        private void _btnAddRespond_Click(object sender, EventArgs e)
+        {
+            RespondItemAddForm AddForm = new(_service, _doctor);
+            AddForm.Show();
+        }
     }
 }

@@ -36,24 +36,27 @@
             // _cmbDoctors
             // 
             this._cmbDoctors.FormattingEnabled = true;
-            this._cmbDoctors.Location = new System.Drawing.Point(262, 65);
+            this._cmbDoctors.Location = new System.Drawing.Point(299, 87);
+            this._cmbDoctors.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this._cmbDoctors.Name = "_cmbDoctors";
-            this._cmbDoctors.Size = new System.Drawing.Size(121, 23);
+            this._cmbDoctors.Size = new System.Drawing.Size(138, 28);
             this._cmbDoctors.TabIndex = 0;
             // 
             // _txtPassword
             // 
-            this._txtPassword.Location = new System.Drawing.Point(272, 112);
+            this._txtPassword.Location = new System.Drawing.Point(311, 149);
+            this._txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this._txtPassword.Name = "_txtPassword";
             this._txtPassword.PasswordChar = '●';
-            this._txtPassword.Size = new System.Drawing.Size(100, 23);
+            this._txtPassword.Size = new System.Drawing.Size(114, 27);
             this._txtPassword.TabIndex = 1;
             // 
             // _btnLogin
             // 
-            this._btnLogin.Location = new System.Drawing.Point(283, 162);
+            this._btnLogin.Location = new System.Drawing.Point(323, 216);
+            this._btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this._btnLogin.Name = "_btnLogin";
-            this._btnLogin.Size = new System.Drawing.Size(75, 23);
+            this._btnLogin.Size = new System.Drawing.Size(86, 31);
             this._btnLogin.TabIndex = 2;
             this._btnLogin.Text = "Login";
             this._btnLogin.UseVisualStyleBackColor = true;
@@ -61,13 +64,12 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 338);
+            this.ClientSize = new System.Drawing.Size(800, 451);
             this.Controls.Add(this._btnLogin);
             this.Controls.Add(this._txtPassword);
             this.Controls.Add(this._cmbDoctors);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
