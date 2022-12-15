@@ -110,6 +110,10 @@ namespace EMS_RS.Services
                 {
                     item.Doctor = GetDoctor(item.Doctor_Id);
                 }
+                foreach (var item in responds)
+                {
+                    item.Car = GetCar(item.Car_Id);
+                }
                 return responds;
             }
             catch (Exception ex)
@@ -142,6 +146,61 @@ namespace EMS_RS.Services
                         Call_Sign= reader.GetString(8),
                         Birthday = reader.GetDateTime(9),
                         Reputation = reader.GetInt32(10),
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return null;
+        }   
+        public CarModel? GetCar(int carId)
+        {
+            string cmd = $"SELECT * FROM [Car] where [car_id] = {carId}";
+            SqlCommand command = new(cmd, _connection);
+            try
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    reader.Read();
+
+                    return new CarModel()
+                    {
+                        Car_Id= reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Plate = reader.GetString(2),
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return null;
+        }
+        public PatientModel? GetPatient(int patientId)
+        {
+            string cmd = $"SELECT * FROM [Patient] WHERE [patient_id] = {patientId}";
+            SqlCommand command = new(cmd, _connection);
+
+            try
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                    return new PatientModel()
+                    {
+                        Patient_Id = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Surname = reader.GetString(2),
+                        Birthday = reader.GetDateTime(3),
+                        Sex = reader.GetString(4),
+                        Street= reader.GetString(5),
+                        City = reader.GetString(6),
+                        Country = reader.GetString(7),
+                        Zip = reader.GetString(8),
+                        Phone_Number = reader.GetInt32(9),
                     };
                 }
             }

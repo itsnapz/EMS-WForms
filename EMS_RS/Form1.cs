@@ -45,7 +45,7 @@ namespace EMS_RS
                 if (user.Password == password)
                 {
                     Hide();
-                    MainForm MainForm = new(user);
+                    MainForm MainForm = new(_service ,user);
                     MainForm.Show();
                 }
                 else

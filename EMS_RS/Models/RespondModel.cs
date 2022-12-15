@@ -11,6 +11,8 @@ namespace EMS_RS.Models
         public int Respond_Id { get; set; }
         public int Doctor_Id { get; set; }
         public DoctorModel? Doctor { get; set; }
+        public CarModel? Car { get; set; }
+        public PatientModel? Patient { get; set; }
         public DateTime Date { get; set; }
         public int Price { get; set; }
         public int Car_Id { get; set; }
