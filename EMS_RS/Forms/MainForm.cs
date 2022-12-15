@@ -28,8 +28,7 @@ namespace EMS_RS.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _lblName.Text = _doctor.Name;
-            _lblSurname.Text = _doctor.Surname;
+            _lblName.Text = _doctor.Name + " " + _doctor.Surname;
             _lblRank.Text = _doctor.Rank;
             _responds = _service.GetResponds(_doctor.Doctor_Id).ToList();
             UpdateUi();

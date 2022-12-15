@@ -23,10 +23,20 @@ namespace EMS_RS.Controls
         private void RespondItemControl_Load(object sender, EventArgs e)
         {
             _lblRespondId.Text = _respond.Respond_Id.ToString();
-            //_lblNameSurname.Text = 
+            _lblNameSurname.Text = _respond.Patient.Name.ToString() + " " + _respond.Patient.Surname.ToString();
             _lblPrice.Text = _respond.Price.ToString();
             _lblDate.Text = _respond.Date.ToShortDateString();
             _lblCarName.Text = _respond.Car.Name.ToString();
+            _lblPatientBirth.Text = _respond.Patient.Birthday.ToShortDateString();
+            _lblPatientPhoneNumber.Text = _respond.Patient.Phone_Number.ToString();
+            if (_respond.Respond_Id%2==0)
+            {
+                BackColor = Color.LightGray;
+            }
+            if (_respond.Price>=10000)
+            {
+                _lblPrice.Location = new Point(_lblPrice.Location.X - 3, _lblPrice.Location.Y);
+            }
         }
     }
 }

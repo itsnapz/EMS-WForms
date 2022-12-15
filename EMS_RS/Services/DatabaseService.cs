@@ -82,7 +82,7 @@ namespace EMS_RS.Services
             }
         }
 
-        public IEnumerable<RespondModel> GetResponds(int Doctor_Id)
+        public IEnumerable<RespondModel>? GetResponds(int Doctor_Id)
         {
             string cmd = $"SELECT * FROM [Respond] where [doctor_id] = {Doctor_Id}";
             SqlCommand command = new SqlCommand(cmd, _connection);
@@ -109,10 +109,8 @@ namespace EMS_RS.Services
                 foreach (var item in responds)
                 {
                     item.Doctor = GetDoctor(item.Doctor_Id);
-                }
-                foreach (var item in responds)
-                {
                     item.Car = GetCar(item.Car_Id);
+                    item.Patient = GetPatient(item.Patient_Id);
                 }
                 return responds;
             }
