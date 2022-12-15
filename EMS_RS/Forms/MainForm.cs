@@ -1,4 +1,4 @@
-﻿using EMS_RS.Data;
+﻿using EMS_RS.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +13,8 @@ namespace EMS_RS.Forms
 {
     public partial class MainForm : Form
     {
-        public Doctor _doctor { get; set; }
-        public MainForm(Doctor doctor)
+        public DoctorModel _doctor { get; set; }
+        public MainForm(DoctorModel doctor)
         {
             InitializeComponent();
             _doctor = doctor;
@@ -25,6 +25,11 @@ namespace EMS_RS.Forms
             _lblName.Text = _doctor.Name;
             _lblSurname.Text = _doctor.Surname;
             _lblRank.Text = _doctor.Rank;
+        }
+
+        private void UpdateUi()
+        {
+
         }
     }
 }

@@ -1,23 +1,25 @@
-using EMS_RS.Data;
 using EMS_RS.Forms;
-using Microsoft.EntityFrameworkCore;
+using EMS_RS.Models;
+using EMS_RS.Services;
 
 namespace EMS_RS
 {
     public partial class Form1 : Form
     {
-        EmsDbContext _database;
-        private List<Doctor> _doctors;
+        public readonly DatabaseService _service;
+        private List<DoctorModel> _doctors;
         public Form1()
         {
             InitializeComponent();
-            _database = new();
-            _doctors = new();
+            _service = new();
+            _doctors = new List<DoctorModel>();
+
+            _service.Connect();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var doctors = _database.Doctors;
+            var doctors = _service.GetDoctors();
             if (doctors == null)
             {
                 MessageBox.Show("Can't load doctors¨.");
@@ -37,12 +39,12 @@ namespace EMS_RS
         {
             string password = _txtPassword.Text;
             var name = _cmbDoctors.SelectedItem;
-            var user = _database.Doctors.FirstOrDefault(x => x.Name + " " + x.Surname == name);
+            var user = _doctors.FirstOrDefault(x => x.Name + " " + x.Surname == name.ToString());
             if (user != null)
             {
                 if (user.Password == password)
                 {
-                    this.Hide();
+                    Hide();
                     MainForm MainForm = new(user);
                     MainForm.Show();
                 }
@@ -53,7 +55,7 @@ namespace EMS_RS
             }
             else
             {
-                MessageBox.Show("No user selected!");
+                MessageBox.Show("No user selected.");
             }
         }
     }
