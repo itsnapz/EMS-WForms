@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,13 +19,14 @@ namespace EMS_RS.Services
         }
         public void Init()
         {
-            SqlConnectionStringBuilder builder = new();
-
-            builder.UserID = "emsLogin";
-            builder.Password = "Heslo1234.";
-            builder.InitialCatalog = "emsDb";
-            builder.DataSource = "(localdb)\\mssqllocaldb";
-            builder.TrustServerCertificate = true;
+            SqlConnectionStringBuilder builder = new()
+            {
+                UserID = "emsLogin",
+                Password = "Heslo1234.",
+                InitialCatalog = "emsDb",
+                DataSource = "(localdb)\\mssqllocaldb",
+                TrustServerCertificate = true
+            };
 
             _connection = new SqlConnection(builder.ConnectionString);
         }
@@ -177,6 +179,59 @@ namespace EMS_RS.Services
             }
             return null;
         }
+        public CarModel? GetCarByName(string name)
+        {
+            string cmd = $"SELECT * FROM [Car] WHERE [name]={name}";
+            SqlCommand command = new(cmd, _connection);
+            try
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        return new CarModel()
+                        {
+                            Car_Id = reader.GetInt32(0),
+                            Name = reader.GetString(0),
+                            Plate = reader.GetString(1),
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return null;
+        }
+        public IEnumerable<CarModel> GetCars()
+        {
+            string cmd = $"SELECT * FROM [Car]";
+            SqlCommand command = new(cmd, _connection);
+            List<CarModel> cars = new List<CarModel>();
+            try
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        CarModel car = new()
+                        {
+                            Car_Id= reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Plate = reader.GetString(2),
+                        };
+                        cars.Add(car);
+                    }
+                }
+                return cars;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return null;
+        }
         public PatientModel? GetPatient(int patientId)
         {
             string cmd = $"SELECT * FROM [Patient] WHERE [patient_id] = {patientId}";
@@ -207,6 +262,80 @@ namespace EMS_RS.Services
                 Debug.WriteLine(ex);
             }
             return null;
+        }
+        public PatientModel? GetPatientByName(string name)
+        {
+            string cmd = $"SELECT * FROM [Patient] WHERE [name] [surname]={name}";
+            SqlCommand command = new(cmd, _connection);
+            try
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        return new PatientModel()
+                        {
+                            Patient_Id= reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Surname = reader.GetString(2),
+                            Birthday = reader.GetDateTime(3),
+                            Sex = reader.GetString(4),
+                            Street= reader.GetString(5),
+                            City = reader.GetString(6),
+                            Country = reader.GetString(7),
+                            Zip = reader.GetString(8),
+                            Phone_Number = reader.GetInt32(9),
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return null;
+        }
+        public IEnumerable<PatientModel> GetPatients()
+        {
+            string cmd = $"SELECT * FROM [Patient]";
+            SqlCommand command = new(cmd, _connection);
+            List<PatientModel> patients = new();
+
+            try
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        PatientModel patient = new()
+                        {
+                            Patient_Id= reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Surname = reader.GetString(2),
+                            Birthday = reader.GetDateTime(3),
+                            Sex = reader.GetString(4),
+                            Street = reader.GetString(5),
+                            City = reader.GetString(6),
+                            Country = reader.GetString(7),
+                            Zip = reader.GetString(8),
+                            Phone_Number = reader.GetInt32(9),
+                        };
+                        patients.Add(patient);
+                    }
+                }
+                return patients;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return null;
+        }
+        public void InsertRespond(RespondModel respond)
+        {
+            string cmd = $"INSERT INTO [Respond](doctor_id, date, price, car_id, patient_id) VALUES({respond.Doctor_Id},'{DateTime.Now.ToString("yyyy-MM-dd")}',{respond.Price},{respond.Car_Id},{respond.Patient_Id})";
+            SqlCommand command = new(cmd, _connection);
+            command.ExecuteNonQuery();
         }
     }
 }
