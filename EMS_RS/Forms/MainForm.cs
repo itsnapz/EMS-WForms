@@ -52,5 +52,25 @@ namespace EMS_RS.Forms
             RespondItemAddForm AddForm = new(_service, _doctor);
             AddForm.Show();
         }
+
+        private void _btnResponds_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _btnPatients_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _btnDoctors_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _btnSettings_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
