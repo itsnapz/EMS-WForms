@@ -337,5 +337,23 @@ namespace EMS_RS.Services
             SqlCommand command = new(cmd, _connection);
             command.ExecuteNonQuery();
         }
+        public void InsertPatient(PatientModel patient)
+        {
+            //string cmd = $"INSERT INTO Patient (name, surname, birthday, sex, street, city, country, zip, phone_number) VALUES ({patient.Name},{patient.Surname},'{patient.Birthday.ToString("yyyy-MM-dd")}',{patient.Sex},{patient.Street},{patient.City},{patient.Country},{patient.Zip},{patient.Phone_Number})";
+            string insertSql = "INSERT INTO Patient (name, surname, birthday, sex, street, city, country, zip, phone_number) VALUES (@name, @surname, @birthday, @sex, @street, @city, @country, @zip, @phone)";
+            using (SqlCommand command = new SqlCommand(insertSql, _connection))
+            {
+                command.Parameters.AddWithValue("@name", patient.Name);
+                command.Parameters.AddWithValue("@surname", patient.Surname);
+                command.Parameters.AddWithValue("@birthday", patient.Birthday);
+                command.Parameters.AddWithValue("@sex", patient.Sex);
+                command.Parameters.AddWithValue("@street", patient.Street);
+                command.Parameters.AddWithValue("@city", patient.City);
+                command.Parameters.AddWithValue("@country", patient.Country);
+                command.Parameters.AddWithValue("@zip", patient.Zip);
+                command.Parameters.AddWithValue("@phone", patient.Phone_Number);
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

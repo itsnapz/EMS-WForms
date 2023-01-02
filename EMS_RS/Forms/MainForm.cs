@@ -31,15 +31,16 @@ namespace EMS_RS.Forms
         {
             HidePatientLabels();
             HideDoctorLabels();
+            _btnAddPatient.Visible = false;
             _lblName.Text = _doctor.Name + " " + _doctor.Surname;
             _lblRank.Text = _doctor.Rank;
             _responds = _service.GetResponds(_doctor.Doctor_Id).ToList();
             _patients = _service.GetPatients().ToList();
             _doctors = _service.GetDoctors().ToList();
-            UpdateUi();
+            UpdateResponds();
         }
 
-        private void UpdateUi()
+        private void UpdateResponds()
         {
             _pnlResponds.Controls.Clear();
             int index = 0;
@@ -60,8 +61,10 @@ namespace EMS_RS.Forms
 
         private void _btnResponds_Click(object sender, EventArgs e)
         {
-            ShowRespondLabels();
             HidePatientLabels();
+            HideDoctorLabels();
+            ShowRespondLabels();
+            _btnAddPatient.Visible = false;
             _pnlResponds.Controls.Clear();
             int index = 0;
             foreach (var respond in _responds)
@@ -115,17 +118,31 @@ namespace EMS_RS.Forms
         }
         private void HideDoctorLabels()
         {
-
+            label15.Visible = false;
+            label16.Visible = false;
+            label17.Visible = false;
+            label18.Visible = false;
+            label19.Visible = false;
+            label20.Visible = false;
+            label21.Visible = false;
         }
         private void ShowDoctorLabels()
         {
-
+            label15.Visible = true;
+            label16.Visible = true;
+            label17.Visible = true;
+            label18.Visible = true;
+            label19.Visible = true;
+            label20.Visible = true;
+            label21.Visible = true;
         }
 
         private void _btnPatients_Click(object sender, EventArgs e)
         {
-            ShowPatientLabels();
             HideRespondLabels();
+            HideDoctorLabels();
+            ShowPatientLabels();
+            _btnAddPatient.Visible = true;
             _pnlResponds.Controls.Clear();
             int index = 0;
             foreach (var patient in _patients)
@@ -141,13 +158,15 @@ namespace EMS_RS.Forms
         {
             HideRespondLabels();
             HidePatientLabels();
+            ShowDoctorLabels();
+            _btnAddPatient.Visible = false;
             _pnlResponds.Controls.Clear();
             int index = 0;
             foreach (var doctor in _doctors)
             {
-                //PatientItemControl control2 = new(doctor);
-                //control2.Location = new Point(0, (control2.Height * index) + 10);
-                //_pnlResponds.Controls.Add(control2);
+                DoctorItemControl control3 = new(doctor);
+                control3.Location = new Point(0, (control3.Height * index) + 10);
+                _pnlResponds.Controls.Add(control3);
                 index++;
             }
         }
@@ -155,6 +174,12 @@ namespace EMS_RS.Forms
         private void _btnSettings_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void _btnAddPatient_Click(object sender, EventArgs e)
+        {
+            PatientItemAddForm AddForm2 = new PatientItemAddForm(_service);
+            AddForm2.Show();
         }
     }
 }

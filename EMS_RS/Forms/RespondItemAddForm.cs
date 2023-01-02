@@ -17,7 +17,6 @@ namespace EMS_RS.Forms
     public partial class RespondItemAddForm : Form
     {
         public DoctorModel _doctor { get; set; }
-        public RespondModel _respond { get; set; }
         private DatabaseService _service;
         private List<PatientModel> _patients;
         private List<CarModel> _cars;

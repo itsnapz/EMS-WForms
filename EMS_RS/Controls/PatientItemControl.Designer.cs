@@ -40,7 +40,7 @@
             // _lblPatientId
             // 
             this._lblPatientId.AutoSize = true;
-            this._lblPatientId.Location = new System.Drawing.Point(19, 15);
+            this._lblPatientId.Location = new System.Drawing.Point(24, 15);
             this._lblPatientId.Name = "_lblPatientId";
             this._lblPatientId.Size = new System.Drawing.Size(17, 15);
             this._lblPatientId.TabIndex = 0;
@@ -49,7 +49,7 @@
             // _lblPatientNameSurname
             // 
             this._lblPatientNameSurname.AutoSize = true;
-            this._lblPatientNameSurname.Location = new System.Drawing.Point(64, 15);
+            this._lblPatientNameSurname.Location = new System.Drawing.Point(80, 16);
             this._lblPatientNameSurname.Name = "_lblPatientNameSurname";
             this._lblPatientNameSurname.Size = new System.Drawing.Size(89, 15);
             this._lblPatientNameSurname.TabIndex = 1;
@@ -58,16 +58,16 @@
             // _lblPatientBirthday
             // 
             this._lblPatientBirthday.AutoSize = true;
-            this._lblPatientBirthday.Location = new System.Drawing.Point(194, 15);
+            this._lblPatientBirthday.Location = new System.Drawing.Point(213, 16);
             this._lblPatientBirthday.Name = "_lblPatientBirthday";
-            this._lblPatientBirthday.Size = new System.Drawing.Size(73, 15);
+            this._lblPatientBirthday.Size = new System.Drawing.Size(65, 15);
             this._lblPatientBirthday.TabIndex = 2;
-            this._lblPatientBirthday.Text = "XX-XX-XXXX";
+            this._lblPatientBirthday.Text = "xx-xx-xxxx";
             // 
             // _lblPatientStreet
             // 
             this._lblPatientStreet.AutoSize = true;
-            this._lblPatientStreet.Location = new System.Drawing.Point(312, 15);
+            this._lblPatientStreet.Location = new System.Drawing.Point(320, 16);
             this._lblPatientStreet.Name = "_lblPatientStreet";
             this._lblPatientStreet.Size = new System.Drawing.Size(81, 15);
             this._lblPatientStreet.TabIndex = 3;
@@ -76,7 +76,7 @@
             // _lblPatientCity
             // 
             this._lblPatientCity.AutoSize = true;
-            this._lblPatientCity.Location = new System.Drawing.Point(448, 15);
+            this._lblPatientCity.Location = new System.Drawing.Point(461, 16);
             this._lblPatientCity.Name = "_lblPatientCity";
             this._lblPatientCity.Size = new System.Drawing.Size(60, 15);
             this._lblPatientCity.TabIndex = 4;
@@ -85,7 +85,7 @@
             // _lblPatientPhoneNumber
             // 
             this._lblPatientPhoneNumber.AutoSize = true;
-            this._lblPatientPhoneNumber.Location = new System.Drawing.Point(637, 15);
+            this._lblPatientPhoneNumber.Location = new System.Drawing.Point(671, 16);
             this._lblPatientPhoneNumber.Name = "_lblPatientPhoneNumber";
             this._lblPatientPhoneNumber.Size = new System.Drawing.Size(61, 15);
             this._lblPatientPhoneNumber.TabIndex = 5;
@@ -94,7 +94,7 @@
             // _lblPatientZIP
             // 
             this._lblPatientZIP.AutoSize = true;
-            this._lblPatientZIP.Location = new System.Drawing.Point(562, 15);
+            this._lblPatientZIP.Location = new System.Drawing.Point(589, 16);
             this._lblPatientZIP.Name = "_lblPatientZIP";
             this._lblPatientZIP.Size = new System.Drawing.Size(24, 15);
             this._lblPatientZIP.TabIndex = 6;
