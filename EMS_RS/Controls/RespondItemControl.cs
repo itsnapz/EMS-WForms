@@ -14,6 +14,8 @@ namespace EMS_RS.Controls
     public partial class RespondItemControl : UserControl
     {
         public RespondModel _respond { get; set; }
+        public delegate void ItemClick(RespondModel respond, RespondItemControl sender);
+        public event ItemClick OnItemClick;
         public RespondItemControl(RespondModel respond)
         {
             _respond = respond;
@@ -38,6 +40,11 @@ namespace EMS_RS.Controls
             {
                 _lblPrice.Location = new Point(_lblPrice.Location.X - 3, _lblPrice.Location.Y);
             }
+        }
+
+        private void RespondItemControl_Click(object sender, EventArgs e)
+        {
+            OnItemClick.Invoke(_respond, this);
         }
     }
 }

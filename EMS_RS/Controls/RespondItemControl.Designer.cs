@@ -115,6 +115,7 @@
             this.Name = "RespondItemControl";
             this.Size = new System.Drawing.Size(772, 48);
             this.Load += new System.EventHandler(this.RespondItemControl_Load);
+            this.Click += new System.EventHandler(this.RespondItemControl_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

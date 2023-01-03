@@ -48,6 +48,7 @@ namespace EMS_RS.Forms
             {
                 RespondItemControl control = new(respond);
                 control.Location = new Point(0, (control.Height * index) + 10);
+                control.OnItemClick += Control_OnItemClick;
                 _pnlResponds.Controls.Add(control);
                 index++;
             }
@@ -65,15 +66,13 @@ namespace EMS_RS.Forms
             HideDoctorLabels();
             ShowRespondLabels();
             _btnAddPatient.Visible = false;
-            _pnlResponds.Controls.Clear();
-            int index = 0;
-            foreach (var respond in _responds)
-            {
-                RespondItemControl control = new(respond);
-                control.Location = new Point(0, (control.Height * index) + 10);
-                _pnlResponds.Controls.Add(control);
-                index++;
-            }
+            UpdateResponds();
+        }
+
+        private void Control_OnItemClick(RespondModel respond, RespondItemControl sender)
+        {
+            RespondItemEditForm editForm = new RespondItemEditForm(_service, respond);
+            editForm.Show();
         }
 
         private void HideRespondLabels()

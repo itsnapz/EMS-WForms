@@ -355,5 +355,11 @@ namespace EMS_RS.Services
                 command.ExecuteNonQuery();
             }
         }
+        public void UpdateRespond(RespondModel respond, int Id)
+        {
+            string cmd = $"UPDATE Respond SET price = '{respond.Price}', car_id = '{respond.Car_Id}', patient_id = '{respond.Patient_Id}' WHERE respond_id = {Id}";
+            SqlCommand command = new(cmd, _connection);
+            command.ExecuteNonQuery();
+        }
     }
 }
