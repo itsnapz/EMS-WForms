@@ -1,4 +1,5 @@
-﻿using EMS_RS.Controls;
+﻿using Azure;
+using EMS_RS.Controls;
 using EMS_RS.Models;
 using EMS_RS.Services;
 using System;
@@ -34,10 +35,23 @@ namespace EMS_RS.Forms
             _btnAddPatient.Visible = false;
             _lblName.Text = _doctor.Name + " " + _doctor.Surname;
             _lblRank.Text = _doctor.Rank;
+            LoadFromSql();
+            UpdateResponds();
+            timer1.Tick += Timer1_Tick;
+            timer1.Interval = 10000;
+            timer1.Start();
+        }
+
+        private void Timer1_Tick(object? sender, EventArgs e)
+        {
+            LoadFromSql();
+        }
+
+        private void LoadFromSql()
+        {
             _responds = _service.GetResponds(_doctor.Doctor_Id).ToList();
             _patients = _service.GetPatients().ToList();
             _doctors = _service.GetDoctors().ToList();
-            UpdateResponds();
         }
 
         private void UpdateResponds()
@@ -67,9 +81,10 @@ namespace EMS_RS.Forms
             ShowRespondLabels();
             _btnAddPatient.Visible = false;
             UpdateResponds();
+            LoadFromSql();
         }
 
-        private void Control_OnItemClick(RespondModel respond, RespondItemControl sender)
+        public void Control_OnItemClick(RespondModel respond, RespondItemControl sender)
         {
             RespondItemEditForm editForm = new RespondItemEditForm(_service, respond);
             editForm.Show();
@@ -138,6 +153,7 @@ namespace EMS_RS.Forms
 
         private void _btnPatients_Click(object sender, EventArgs e)
         {
+            LoadFromSql();
             HideRespondLabels();
             HideDoctorLabels();
             ShowPatientLabels();
@@ -155,6 +171,7 @@ namespace EMS_RS.Forms
 
         private void _btnDoctors_Click(object sender, EventArgs e)
         {
+            LoadFromSql();
             HideRespondLabels();
             HidePatientLabels();
             ShowDoctorLabels();
@@ -179,6 +196,18 @@ namespace EMS_RS.Forms
         {
             PatientItemAddForm AddForm2 = new PatientItemAddForm(_service);
             AddForm2.Show();
+        }
+
+        private void MainForm_Deactivate(object sender, EventArgs e)
+        {
+            LoadFromSql();
+            UpdateResponds();
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            LoadFromSql();
+            UpdateResponds();
         }
     }
 }

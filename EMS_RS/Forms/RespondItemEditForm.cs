@@ -47,12 +47,13 @@ namespace EMS_RS.Forms
             {
                 _cmbPatients.Items.Add(patient.Name + " " + patient.Surname);
             }
-            label4.Text = _respond.Patient.Name + " " + _respond.Patient.Surname;
-            label5.Text = _respond.Car.Name;
-            label6.Text = _respond.Price.ToString();
             _cmbPatients.SelectedItem = _respond.Patient.Name + " " + _respond.Patient.Surname;
             _cmbCars.SelectedItem = _respond.Car.Name;
             _txtPrice.Text = _respond.Price.ToString();
+            string name = _cmbPatients.SelectedItem.ToString();
+            _patient = _patients.FirstOrDefault(x => x.Name + " " + x.Surname == name);
+            string carName = _cmbCars.SelectedItem.ToString();
+            _car = _cars.FirstOrDefault(x => x.Name == carName);
         }
 
         private void _btnCancel_Click(object sender, EventArgs e)
