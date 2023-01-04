@@ -11,6 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using Timer = System.Windows.Forms.Timer;
 
 namespace EMS_RS.Forms
 {
@@ -21,6 +23,7 @@ namespace EMS_RS.Forms
         private List<RespondModel> _responds;
         private List<PatientModel> _patients;
         private List<DoctorModel> _doctors;
+        private static int totalPrice;
         public MainForm(DatabaseService service, DoctorModel doctor)
         {
             InitializeComponent();
@@ -37,16 +40,7 @@ namespace EMS_RS.Forms
             _lblRank.Text = _doctor.Rank;
             LoadFromSql();
             UpdateResponds();
-            timer1.Tick += Timer1_Tick;
-            timer1.Interval = 10000;
-            timer1.Start();
         }
-
-        private void Timer1_Tick(object? sender, EventArgs e)
-        {
-            LoadFromSql();
-        }
-
         private void LoadFromSql()
         {
             _responds = _service.GetResponds(_doctor.Doctor_Id).ToList();
@@ -79,7 +73,9 @@ namespace EMS_RS.Forms
             HidePatientLabels();
             HideDoctorLabels();
             ShowRespondLabels();
+            _btnAddRespond.Visible = true;
             _btnAddPatient.Visible = false;
+            _btnAddDoctor.Visible = false;
             UpdateResponds();
             LoadFromSql();
         }
@@ -158,6 +154,8 @@ namespace EMS_RS.Forms
             HideDoctorLabels();
             ShowPatientLabels();
             _btnAddPatient.Visible = true;
+            _btnAddDoctor.Visible = false;
+            _btnAddRespond.Visible = false;
             _pnlResponds.Controls.Clear();
             int index = 0;
             foreach (var patient in _patients)
@@ -176,15 +174,23 @@ namespace EMS_RS.Forms
             HidePatientLabels();
             ShowDoctorLabels();
             _btnAddPatient.Visible = false;
+            _btnAddDoctor.Visible = true;
             _pnlResponds.Controls.Clear();
             int index = 0;
             foreach (var doctor in _doctors)
             {
                 DoctorItemControl control3 = new(doctor);
                 control3.Location = new Point(0, (control3.Height * index) + 10);
+                control3.OnItemClick += Control3_OnItemClick;
                 _pnlResponds.Controls.Add(control3);
                 index++;
             }
+        }
+
+        private void Control3_OnItemClick(DoctorModel doctor, DoctorItemControl sender)
+        {
+            DoctorItemEditForm editForm = new DoctorItemEditForm();
+            editForm.Show();
         }
 
         private void _btnSettings_Click(object sender, EventArgs e)
@@ -201,13 +207,24 @@ namespace EMS_RS.Forms
         private void MainForm_Deactivate(object sender, EventArgs e)
         {
             LoadFromSql();
-            UpdateResponds();
         }
 
         private void MainForm_Activated(object sender, EventArgs e)
         {
             LoadFromSql();
-            UpdateResponds();
+        }
+
+        private void _btnAddDoctor_Click(object sender, EventArgs e)
+        {
+            if (_doctor.Rank == "Head" || _doctor.Rank == "Dean")
+            {
+                DoctorItemAddForm AddForm3 = new DoctorItemAddForm(_service);
+                AddForm3.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sorry, you don't have permissions to do this.");
+            }
         }
     }
 }

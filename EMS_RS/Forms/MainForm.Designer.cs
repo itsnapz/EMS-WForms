@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this._lblRank = new System.Windows.Forms.Label();
             this._lblName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -60,7 +59,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this._btnAddPatient = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this._btnAddDoctor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -416,16 +415,23 @@
             this._btnAddPatient.UseVisualStyleBackColor = true;
             this._btnAddPatient.Click += new System.EventHandler(this._btnAddPatient_Click);
             // 
-            // timer1
+            // _btnAddDoctor
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
+            this._btnAddDoctor.Location = new System.Drawing.Point(46, 364);
+            this._btnAddDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._btnAddDoctor.Name = "_btnAddDoctor";
+            this._btnAddDoctor.Size = new System.Drawing.Size(82, 22);
+            this._btnAddDoctor.TabIndex = 18;
+            this._btnAddDoctor.Text = "Add";
+            this._btnAddDoctor.UseVisualStyleBackColor = true;
+            this._btnAddDoctor.Click += new System.EventHandler(this._btnAddDoctor_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 394);
+            this.Controls.Add(this._btnAddDoctor);
             this.Controls.Add(this._btnAddPatient);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label21);
@@ -502,6 +508,6 @@
         private Label label16;
         private Label label15;
         private Button _btnAddPatient;
-        private System.Windows.Forms.Timer timer1;
+        private Button _btnAddDoctor;
     }
 }

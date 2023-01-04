@@ -83,6 +83,34 @@ namespace EMS_RS.Services
                 return null;
             }
         }
+        public IEnumerable<HospitalModel> GetHospitals()
+        {
+            string cmd = $"SELECT * FROM [Hospital]";
+            SqlCommand command = new SqlCommand(cmd, _connection);
+            List<HospitalModel> hospitals = new List<HospitalModel>();
+            try
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        HospitalModel hospital = new()
+                        {
+                            Hospital_Id = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Street = reader.GetString(2),
+                        };
+                        hospitals.Add(hospital);
+                    }
+                    return hospitals;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                return null;
+            }
+        }
 
         public IEnumerable<RespondModel>? GetResponds(int Doctor_Id)
         {
@@ -355,9 +383,33 @@ namespace EMS_RS.Services
                 command.ExecuteNonQuery();
             }
         }
+        public void InsertDoctor(DoctorModel doctor)
+        {
+            string insertSql = $"INSERT INTO Doctor (name, surname, sex, rank, phone_number, hospital_id, password, call_sign, birthday, reputation) VALUES (@name, @surname, @sex, @rank, @phone, @hospital, @pass, @call, @birthday, @rep)";
+            using (SqlCommand command = new SqlCommand(insertSql, _connection))
+            {
+                command.Parameters.AddWithValue("@name", doctor.Name);
+                command.Parameters.AddWithValue("@surname", doctor.Surname);
+                command.Parameters.AddWithValue("@sex", doctor.Sex);
+                command.Parameters.AddWithValue("@rank", doctor.Rank);
+                command.Parameters.AddWithValue("@phone", doctor.Phone_Number);
+                command.Parameters.AddWithValue("@hospital", doctor.Hospital_Id);
+                command.Parameters.AddWithValue("@pass", doctor.Password);
+                command.Parameters.AddWithValue("@call", doctor.Call_Sign);
+                command.Parameters.AddWithValue("@birthday", doctor.Birthday);
+                command.Parameters.AddWithValue("@rep", doctor.Reputation);
+                command.ExecuteNonQuery();
+            }
+        }
         public void UpdateRespond(RespondModel respond, int Id)
         {
             string cmd = $"UPDATE Respond SET price = '{respond.Price}', car_id = '{respond.Car_Id}', patient_id = '{respond.Patient_Id}' WHERE respond_id = {Id}";
+            SqlCommand command = new(cmd, _connection);
+            command.ExecuteNonQuery();
+        }
+        public void UpdateDoctor(DoctorModel doctor, int Id)
+        {
+            string cmd = $"UPDATE Doctor SET name = '{doctor.Name}', surname = '{doctor.Surname}', sex = '{doctor.Sex}', rank = '{doctor.Rank}', phone_number = '{doctor.Phone_Number}', hospital_id = '{doctor.Hospital_Id}', password = '{doctor.Password}', call_sign = '{doctor.Call_Sign}', birthday = '{doctor.Birthday}', reputation = '{doctor.Reputation}'";
             SqlCommand command = new(cmd, _connection);
             command.ExecuteNonQuery();
         }

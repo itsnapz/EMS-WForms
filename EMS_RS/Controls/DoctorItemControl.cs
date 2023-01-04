@@ -14,6 +14,8 @@ namespace EMS_RS.Controls
     public partial class DoctorItemControl : UserControl
     {
         public DoctorModel _doctor { get; set; }
+        public delegate void ItemClick(DoctorModel doctor, DoctorItemControl sender);
+        public event ItemClick OnItemClick;
         public DoctorItemControl(DoctorModel doctor)
         {
             _doctor = doctor;
@@ -38,6 +40,11 @@ namespace EMS_RS.Controls
             {
                 _lblDoctorReputation.Location = new Point(_lblDoctorReputation.Location.X - 3, _lblDoctorReputation.Location.Y);
             }
+        }
+
+        private void DoctorItemControl_Click(object sender, EventArgs e)
+        {
+            OnItemClick.Invoke(_doctor, this);
         }
     }
 }

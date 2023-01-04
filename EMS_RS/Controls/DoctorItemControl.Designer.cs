@@ -114,6 +114,7 @@
             this.Name = "DoctorItemControl";
             this.Size = new System.Drawing.Size(772, 48);
             this.Load += new System.EventHandler(this.DoctorItemControl_Load);
+            this.Click += new System.EventHandler(this.DoctorItemControl_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
