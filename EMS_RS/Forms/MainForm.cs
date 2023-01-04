@@ -162,9 +162,16 @@ namespace EMS_RS.Forms
             {
                 PatientItemControl control2 = new(patient);
                 control2.Location = new Point(0, (control2.Height * index) + 10);
+                control2.OnItemClick += Control2_OnItemClick;
                 _pnlResponds.Controls.Add(control2);
                 index++;
             }
+        }
+
+        private void Control2_OnItemClick(PatientModel patient, PatientItemControl sender)
+        {
+            PatientItemEditForm patientEdit = new(patient, _service);
+            patientEdit.Show();
         }
 
         private void _btnDoctors_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using EMS_RS.Models;
+using EMS_RS.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,13 @@ namespace EMS_RS.Controls
 {
     public partial class PatientItemControl : UserControl
     {
+        public delegate void ItemClick(PatientModel patient, PatientItemControl sender);
+        public event ItemClick OnItemClick;
         public PatientModel _patient { get; set; }
         public PatientItemControl(PatientModel patient)
         {
-            _patient = patient;
             InitializeComponent();
+            _patient = patient;
         }
 
         private void PatientItemControl_Load(object sender, EventArgs e)
@@ -34,6 +37,11 @@ namespace EMS_RS.Controls
             {
                 BackColor = Color.LightGray;
             }
+        }
+
+        private void PatientItemControl_Click(object sender, EventArgs e)
+        {
+            OnItemClick.Invoke(_patient, this);
         }
     }
 }
