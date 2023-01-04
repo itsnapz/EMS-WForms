@@ -19,5 +19,6 @@ namespace EMS_RS.Models
         public string Call_Sign { get; set; }
         public DateTime Birthday { get; set; }
         public int Reputation { get; set; }
+        public HospitalModel? Hospital { get; set; }
     }
 }

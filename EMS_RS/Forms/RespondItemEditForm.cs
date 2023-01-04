@@ -33,6 +33,9 @@ namespace EMS_RS.Forms
 
         private void RespondItemEditForm_Load(object sender, EventArgs e)
         {
+            _cmbCars.DropDownStyle = ComboBoxStyle.DropDownList;
+            _cmbPatients.DropDownStyle = ComboBoxStyle.DropDownList;
+
             _cars = _service.GetCars().ToList();
             _patients = _service.GetPatients().ToList();
 

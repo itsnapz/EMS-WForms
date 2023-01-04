@@ -73,6 +73,10 @@ namespace EMS_RS.Services
                         };
                         doctors.Add(doctor);
                     }
+                    foreach (var item in doctors)
+                    {
+                        item.Hospital = GetHospital(item.Hospital_Id);
+                    }
                     return doctors;
                 }
             }
@@ -143,6 +147,30 @@ namespace EMS_RS.Services
                     item.Patient = GetPatient(item.Patient_Id);
                 }
                 return responds;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            return null;
+        }
+        public HospitalModel? GetHospital(int Id)
+        {
+            string cmd = $"SELECT * FROM [Hospital] where [hospital_id] = {Id}";
+            SqlCommand command = new(cmd, _connection);
+            try
+            {
+                using(var reader = command.ExecuteReader())
+                {
+                    reader.Read();
+
+                    return new HospitalModel()
+                    {
+                        Hospital_Id = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Street = reader.GetString(2),
+                    };
+                }
             }
             catch (Exception ex)
             {
@@ -409,7 +437,7 @@ namespace EMS_RS.Services
         }
         public void UpdateDoctor(DoctorModel doctor, int Id)
         {
-            string cmd = $"UPDATE Doctor SET name = '{doctor.Name}', surname = '{doctor.Surname}', sex = '{doctor.Sex}', rank = '{doctor.Rank}', phone_number = '{doctor.Phone_Number}', hospital_id = '{doctor.Hospital_Id}', password = '{doctor.Password}', call_sign = '{doctor.Call_Sign}', birthday = '{doctor.Birthday}', reputation = '{doctor.Reputation}'";
+            string cmd = $"UPDATE Doctor SET name = '{doctor.Name}', surname = '{doctor.Surname}', sex = '{doctor.Sex}', rank = '{doctor.Rank}', phone_number = '{doctor.Phone_Number}', hospital_id = '{doctor.Hospital_Id}', password = '{doctor.Password}', call_sign = '{doctor.Call_Sign}', birthday = '{doctor.Birthday}', reputation = '{doctor.Reputation}' WHERE doctor_id = {Id}";
             SqlCommand command = new(cmd, _connection);
             command.ExecuteNonQuery();
         }

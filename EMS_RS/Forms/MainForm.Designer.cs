@@ -98,6 +98,7 @@
             // 
             // _pnlResponds
             // 
+            this._pnlResponds.AutoScroll = true;
             this._pnlResponds.Location = new System.Drawing.Point(173, 32);
             this._pnlResponds.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this._pnlResponds.Name = "_pnlResponds";

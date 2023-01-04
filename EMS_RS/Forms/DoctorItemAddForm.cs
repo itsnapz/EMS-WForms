@@ -15,7 +15,6 @@ namespace EMS_RS.Forms
     public partial class DoctorItemAddForm : Form
     {
         private DatabaseService _service;
-        private DoctorModel _doctor { get; set; }
         private List<HospitalModel> _hospitals;
         private HospitalModel _hospital { get; set; }
         public DoctorItemAddForm(DatabaseService service)

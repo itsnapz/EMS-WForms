@@ -189,8 +189,8 @@ namespace EMS_RS.Forms
 
         private void Control3_OnItemClick(DoctorModel doctor, DoctorItemControl sender)
         {
-            DoctorItemEditForm editForm = new DoctorItemEditForm();
-            editForm.Show();
+            DoctorItemEditForm doctorEdit = new DoctorItemEditForm(_service, doctor);
+            doctorEdit.Show();
         }
 
         private void _btnSettings_Click(object sender, EventArgs e)
