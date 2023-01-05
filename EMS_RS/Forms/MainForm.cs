@@ -37,6 +37,7 @@ namespace EMS_RS.Forms
             HideDoctorLabels();
             _btnAddPatient.Visible = false;
             _btnAddDoctor.Visible = false;
+            _lblName.Parent = pictureBox1;
             _lblName.Text = _doctor.Name + " " + _doctor.Surname;
             _lblRank.Text = _doctor.Rank;
             LoadFromSql();
@@ -226,21 +227,42 @@ namespace EMS_RS.Forms
 
         private void Control3_OnDeleteClick(DoctorModel doctor, DoctorItemControl sender)
         {
-            DialogResult myResult = MessageBox.Show("Are you sure you want to delete this role?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (myResult == DialogResult.OK)
+            if (_doctor.Rank == "Head" || _doctor.Rank == "Dean")
             {
-                _service.DeleteDoctor(doctor, doctor.Doctor_Id);
+                if (doctor.Rank == _doctor.Rank)
+                {
+                    MessageBox.Show("You can't delete yourself.");
+                }
+                else
+                {
+                    DialogResult myResult = MessageBox.Show("Are you sure you want to delete this role?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (myResult == DialogResult.OK)
+                    {
+                        _service.DeleteDoctor(doctor, doctor.Doctor_Id);
+                    }
+                    else
+                    {
+
+                    }
+                }
             }
             else
             {
-
+                MessageBox.Show("Sorry, you don't have permissions to do that.");
             }
         }
 
         private void Control3_OnItemClick(DoctorModel doctor, DoctorItemControl sender)
         {
-            DoctorItemEditForm doctorEdit = new DoctorItemEditForm(_service, doctor);
-            doctorEdit.Show();
+            if (_doctor.Rank == "Head" || _doctor.Rank == "Dean")
+            {
+                DoctorItemEditForm doctorEdit = new DoctorItemEditForm(_service, doctor);
+                doctorEdit.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sorry, you don't have permissions to do that.");
+            }
         }
 
         private void _btnSettings_Click(object sender, EventArgs e)

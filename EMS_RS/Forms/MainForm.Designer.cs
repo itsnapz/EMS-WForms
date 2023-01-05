@@ -65,44 +65,44 @@
             // 
             // _lblRank
             // 
-            this._lblRank.AutoSize = true;
             this._lblRank.BackColor = System.Drawing.Color.Crimson;
             this._lblRank.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._lblRank.ForeColor = System.Drawing.Color.White;
-            this._lblRank.Location = new System.Drawing.Point(59, 39);
+            this._lblRank.Location = new System.Drawing.Point(2, 44);
             this._lblRank.Name = "_lblRank";
-            this._lblRank.Size = new System.Drawing.Size(45, 21);
+            this._lblRank.Size = new System.Drawing.Size(174, 21);
             this._lblRank.TabIndex = 0;
             this._lblRank.Text = "Rank";
+            this._lblRank.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // _lblName
             // 
-            this._lblName.AutoSize = true;
             this._lblName.BackColor = System.Drawing.Color.Crimson;
             this._lblName.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._lblName.ForeColor = System.Drawing.Color.White;
-            this._lblName.Location = new System.Drawing.Point(21, 7);
+            this._lblName.Location = new System.Drawing.Point(0, 20);
             this._lblName.Name = "_lblName";
-            this._lblName.Size = new System.Drawing.Size(56, 21);
+            this._lblName.Size = new System.Drawing.Size(176, 21);
             this._lblName.TabIndex = 1;
-            this._lblName.Text = "Name";
+            this._lblName.Text = "Name Surname";
+            this._lblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Crimson;
-            this.pictureBox1.Location = new System.Drawing.Point(-4, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(178, 407);
+            this.pictureBox1.Size = new System.Drawing.Size(176, 408);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // _pnlResponds
             // 
             this._pnlResponds.AutoScroll = true;
-            this._pnlResponds.Location = new System.Drawing.Point(173, 32);
+            this._pnlResponds.Location = new System.Drawing.Point(180, 32);
             this._pnlResponds.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this._pnlResponds.Name = "_pnlResponds";
-            this._pnlResponds.Size = new System.Drawing.Size(789, 374);
+            this._pnlResponds.Size = new System.Drawing.Size(790, 374);
             this._pnlResponds.TabIndex = 4;
             // 
             // label1
@@ -143,7 +143,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.Control;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(522, 7);
+            this.label4.Location = new System.Drawing.Point(532, 7);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 15);
             this.label4.TabIndex = 8;
@@ -165,7 +165,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Control;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(761, 7);
+            this.label6.Location = new System.Drawing.Point(766, 8);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 15);
             this.label6.TabIndex = 10;
@@ -199,17 +199,17 @@
             this._btnResponds.BackColor = System.Drawing.Color.Crimson;
             this._btnResponds.FlatAppearance.BorderSize = 0;
             this._btnResponds.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
-            this._btnResponds.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this._btnResponds.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this._btnResponds.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._btnResponds.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnResponds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnResponds.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnResponds.ForeColor = System.Drawing.Color.White;
             this._btnResponds.Image = global::EMS_RS.Properties.Resources.respond;
             this._btnResponds.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnResponds.Location = new System.Drawing.Point(-4, 82);
+            this._btnResponds.Location = new System.Drawing.Point(-1, 101);
             this._btnResponds.Name = "_btnResponds";
             this._btnResponds.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this._btnResponds.Size = new System.Drawing.Size(178, 40);
+            this._btnResponds.Size = new System.Drawing.Size(177, 40);
             this._btnResponds.TabIndex = 13;
             this._btnResponds.Text = "Responds";
             this._btnResponds.UseVisualStyleBackColor = false;
@@ -220,17 +220,17 @@
             this._btnDoctors.BackColor = System.Drawing.Color.Crimson;
             this._btnDoctors.FlatAppearance.BorderSize = 0;
             this._btnDoctors.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
-            this._btnDoctors.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this._btnDoctors.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this._btnDoctors.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._btnDoctors.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnDoctors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnDoctors.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnDoctors.ForeColor = System.Drawing.Color.White;
             this._btnDoctors.Image = global::EMS_RS.Properties.Resources.doctor;
             this._btnDoctors.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnDoctors.Location = new System.Drawing.Point(-4, 174);
+            this._btnDoctors.Location = new System.Drawing.Point(-1, 193);
             this._btnDoctors.Name = "_btnDoctors";
             this._btnDoctors.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this._btnDoctors.Size = new System.Drawing.Size(178, 40);
+            this._btnDoctors.Size = new System.Drawing.Size(177, 40);
             this._btnDoctors.TabIndex = 14;
             this._btnDoctors.Text = "Doctors";
             this._btnDoctors.UseVisualStyleBackColor = false;
@@ -241,17 +241,17 @@
             this._btnSettings.BackColor = System.Drawing.Color.Crimson;
             this._btnSettings.FlatAppearance.BorderSize = 0;
             this._btnSettings.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
-            this._btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this._btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this._btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSettings.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnSettings.ForeColor = System.Drawing.Color.White;
             this._btnSettings.Image = global::EMS_RS.Properties.Resources.settings;
             this._btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnSettings.Location = new System.Drawing.Point(-4, 220);
+            this._btnSettings.Location = new System.Drawing.Point(-1, 239);
             this._btnSettings.Name = "_btnSettings";
             this._btnSettings.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this._btnSettings.Size = new System.Drawing.Size(178, 40);
+            this._btnSettings.Size = new System.Drawing.Size(177, 40);
             this._btnSettings.TabIndex = 15;
             this._btnSettings.Text = "Settings";
             this._btnSettings.UseVisualStyleBackColor = false;
@@ -262,17 +262,17 @@
             this._btnPatients.BackColor = System.Drawing.Color.Crimson;
             this._btnPatients.FlatAppearance.BorderSize = 0;
             this._btnPatients.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
-            this._btnPatients.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this._btnPatients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
+            this._btnPatients.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._btnPatients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnPatients.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnPatients.ForeColor = System.Drawing.Color.White;
             this._btnPatients.Image = global::EMS_RS.Properties.Resources.patient;
             this._btnPatients.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnPatients.Location = new System.Drawing.Point(-4, 128);
+            this._btnPatients.Location = new System.Drawing.Point(-1, 147);
             this._btnPatients.Name = "_btnPatients";
             this._btnPatients.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this._btnPatients.Size = new System.Drawing.Size(178, 40);
+            this._btnPatients.Size = new System.Drawing.Size(177, 40);
             this._btnPatients.TabIndex = 16;
             this._btnPatients.Text = "Patients";
             this._btnPatients.UseVisualStyleBackColor = false;
@@ -282,7 +282,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(201, 7);
+            this.label8.Location = new System.Drawing.Point(203, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(20, 15);
             this.label8.TabIndex = 0;
@@ -312,7 +312,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(509, 7);
+            this.label11.Location = new System.Drawing.Point(513, 7);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(38, 15);
             this.label11.TabIndex = 3;
@@ -322,7 +322,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(648, 7);
+            this.label12.Location = new System.Drawing.Point(658, 7);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(27, 15);
             this.label12.TabIndex = 4;
@@ -342,7 +342,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(856, 7);
+            this.label14.Location = new System.Drawing.Point(866, 7);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(41, 15);
             this.label14.TabIndex = 6;
@@ -352,7 +352,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(201, 9);
+            this.label15.Location = new System.Drawing.Point(207, 9);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(20, 15);
             this.label15.TabIndex = 0;
@@ -362,7 +362,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(274, 9);
+            this.label16.Location = new System.Drawing.Point(280, 9);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(39, 15);
             this.label16.TabIndex = 1;
@@ -372,7 +372,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(389, 9);
+            this.label17.Location = new System.Drawing.Point(395, 9);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(51, 15);
             this.label17.TabIndex = 2;
@@ -382,7 +382,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(513, 9);
+            this.label18.Location = new System.Drawing.Point(519, 9);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(33, 15);
             this.label18.TabIndex = 3;
@@ -392,7 +392,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(613, 9);
+            this.label19.Location = new System.Drawing.Point(619, 9);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(51, 15);
             this.label19.TabIndex = 4;
@@ -402,7 +402,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(746, 9);
+            this.label20.Location = new System.Drawing.Point(752, 9);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(41, 15);
             this.label20.TabIndex = 5;
@@ -412,7 +412,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(855, 9);
+            this.label21.Location = new System.Drawing.Point(861, 9);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(27, 15);
             this.label21.TabIndex = 6;
@@ -446,7 +446,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(962, 406);
+            this.ClientSize = new System.Drawing.Size(970, 406);
             this.Controls.Add(this._btnAddDoctor);
             this.Controls.Add(this._btnAddPatient);
             this.Controls.Add(this.label15);
