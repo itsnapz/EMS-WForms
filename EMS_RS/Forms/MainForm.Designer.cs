@@ -60,6 +60,11 @@
             this.label21 = new System.Windows.Forms.Label();
             this._btnAddPatient = new System.Windows.Forms.Button();
             this._btnAddDoctor = new System.Windows.Forms.Button();
+            this._btnCars = new System.Windows.Forms.Button();
+            this._btnAddCar = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -204,7 +209,7 @@
             this._btnResponds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnResponds.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnResponds.ForeColor = System.Drawing.Color.White;
-            this._btnResponds.Image = global::EMS_RS.Properties.Resources.respond;
+            this._btnResponds.Image = global::EMS_RS.Properties.Resources.cardiogram;
             this._btnResponds.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this._btnResponds.Location = new System.Drawing.Point(-1, 101);
             this._btnResponds.Name = "_btnResponds";
@@ -225,7 +230,7 @@
             this._btnDoctors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnDoctors.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnDoctors.ForeColor = System.Drawing.Color.White;
-            this._btnDoctors.Image = global::EMS_RS.Properties.Resources.doctor;
+            this._btnDoctors.Image = global::EMS_RS.Properties.Resources.medic;
             this._btnDoctors.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this._btnDoctors.Location = new System.Drawing.Point(-1, 193);
             this._btnDoctors.Name = "_btnDoctors";
@@ -248,7 +253,7 @@
             this._btnSettings.ForeColor = System.Drawing.Color.White;
             this._btnSettings.Image = global::EMS_RS.Properties.Resources.settings;
             this._btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this._btnSettings.Location = new System.Drawing.Point(-1, 239);
+            this._btnSettings.Location = new System.Drawing.Point(-3, 285);
             this._btnSettings.Name = "_btnSettings";
             this._btnSettings.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this._btnSettings.Size = new System.Drawing.Size(177, 40);
@@ -442,11 +447,79 @@
             this._btnAddDoctor.UseVisualStyleBackColor = true;
             this._btnAddDoctor.Click += new System.EventHandler(this._btnAddDoctor_Click);
             // 
+            // _btnCars
+            // 
+            this._btnCars.BackColor = System.Drawing.Color.Crimson;
+            this._btnCars.FlatAppearance.BorderSize = 0;
+            this._btnCars.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
+            this._btnCars.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._btnCars.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._btnCars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnCars.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this._btnCars.ForeColor = System.Drawing.Color.White;
+            this._btnCars.Image = global::EMS_RS.Properties.Resources.car;
+            this._btnCars.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._btnCars.Location = new System.Drawing.Point(-3, 239);
+            this._btnCars.Name = "_btnCars";
+            this._btnCars.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this._btnCars.Size = new System.Drawing.Size(177, 40);
+            this._btnCars.TabIndex = 19;
+            this._btnCars.Text = "Cars";
+            this._btnCars.UseVisualStyleBackColor = false;
+            this._btnCars.Click += new System.EventHandler(this._btnCars_Click);
+            // 
+            // _btnAddCar
+            // 
+            this._btnAddCar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnAddCar.Location = new System.Drawing.Point(46, 358);
+            this._btnAddCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this._btnAddCar.Name = "_btnAddCar";
+            this._btnAddCar.Size = new System.Drawing.Size(82, 25);
+            this._btnAddCar.TabIndex = 20;
+            this._btnAddCar.Text = "Add";
+            this._btnAddCar.UseVisualStyleBackColor = true;
+            this._btnAddCar.Click += new System.EventHandler(this._btnAddCar_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label22.Location = new System.Drawing.Point(203, 9);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(20, 15);
+            this.label22.TabIndex = 21;
+            this.label22.Text = "ID";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label23.Location = new System.Drawing.Point(273, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(39, 15);
+            this.label23.TabIndex = 22;
+            this.label23.Text = "Name";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label24.Location = new System.Drawing.Point(371, 9);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(33, 15);
+            this.label24.TabIndex = 23;
+            this.label24.Text = "Plate";
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(970, 406);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this._btnAddCar);
+            this.Controls.Add(this._btnCars);
             this.Controls.Add(this._btnAddDoctor);
             this.Controls.Add(this._btnAddPatient);
             this.Controls.Add(this.label15);
@@ -526,5 +599,10 @@
         private Label label15;
         private Button _btnAddPatient;
         private Button _btnAddDoctor;
+        private Button _btnCars;
+        private Button _btnAddCar;
+        private Label label22;
+        private Label label23;
+        private Label label24;
     }
 }

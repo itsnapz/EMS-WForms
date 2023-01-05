@@ -23,7 +23,7 @@ namespace EMS_RS
             var doctors = _service.GetDoctors();
             if (doctors == null)
             {
-                MessageBox.Show("Can't load doctors¨.");
+                MessageBox.Show("Can't load doctors. Please check if connection is written correct.");
             }
             else
             {
@@ -51,7 +51,7 @@ namespace EMS_RS
                 }
                 else
                 {
-                    MessageBox.Show("I'm sorry");
+                    MessageBox.Show("Wrong password.");
                 }
             }
             else

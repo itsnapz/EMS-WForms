@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using Timer = System.Windows.Forms.Timer;
+using System.Numerics;
 
 namespace EMS_RS.Forms
 {
@@ -20,10 +21,10 @@ namespace EMS_RS.Forms
     {
         private readonly DatabaseService _service;
         public DoctorModel _doctor { get; set; }
-        private List<RespondModel> _responds;
-        private List<PatientModel> _patients;
-        private List<DoctorModel> _doctors;
-        private static int totalPrice;
+        private List<RespondModel>? _responds;
+        private List<PatientModel>? _patients;
+        private List<DoctorModel>? _doctors;
+        private List<CarModel>? _cars;
         public MainForm(DatabaseService service, DoctorModel doctor)
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace EMS_RS.Forms
             _pnlResponds.Visible = true;
             HidePatientLabels();
             HideDoctorLabels();
+            HideCarLabels();
             _btnAddPatient.Visible = false;
             _btnAddDoctor.Visible = false;
             _lblName.Parent = pictureBox1;
@@ -49,6 +51,7 @@ namespace EMS_RS.Forms
             _responds = _service.GetResponds(_doctor.Doctor_Id).ToList();
             _patients = _service.GetPatients().ToList();
             _doctors = _service.GetDoctors().ToList();
+            _cars = _service.GetCars().ToList();
         }
 
         private void UpdateResponds()
@@ -73,38 +76,141 @@ namespace EMS_RS.Forms
             {
                 _service.DeleteRespond(respond, respond.Respond_Id);
             }
-            else
-            {
-
-            }
-        }
-
-        private void _btnAddRespond_Click(object sender, EventArgs e)
-        {
-            RespondItemAddForm AddForm = new(_service, _doctor);
-            AddForm.Show();
         }
 
         private void _btnResponds_Click(object sender, EventArgs e)
         {
-            _pnlResponds.Visible = true;
-            HideSettings();
+            HideCarLabels();
             HidePatientLabels();
             HideDoctorLabels();
             ShowRespondLabels();
             _btnAddRespond.Visible = true;
             _btnAddPatient.Visible = false;
             _btnAddDoctor.Visible = false;
+            _btnAddCar.Visible = false;
             UpdateResponds();
             LoadFromSql();
         }
-
-        public void Control_OnItemClick(RespondModel respond, RespondItemControl sender)
+        private void _btnPatients_Click(object sender, EventArgs e)
         {
-            RespondItemEditForm editForm = new RespondItemEditForm(_service, respond);
-            editForm.Show();
+            LoadFromSql();
+            HideRespondLabels();
+            HideCarLabels();
+            HideDoctorLabels();
+            ShowPatientLabels();
+            _btnAddPatient.Visible = true;
+            _btnAddDoctor.Visible = false;
+            _btnAddRespond.Visible = false;
+            _btnAddCar.Visible = false;
+            _pnlResponds.Controls.Clear();
+            int index = 0;
+            foreach (var patient in _patients)
+            {
+                PatientItemControl control2 = new(patient);
+                control2.Location = new Point(0, (control2.Height * index) + 10);
+                control2.OnItemClick += Control2_OnItemClick;
+                control2.OnDeleteClick += Control2_OnDeleteClick;
+                _pnlResponds.Controls.Add(control2);
+                index++;
+            }
         }
-
+        private void _btnDoctors_Click(object sender, EventArgs e)
+        {
+            LoadFromSql();
+            HideRespondLabels();
+            HidePatientLabels();
+            HideCarLabels();
+            ShowDoctorLabels();
+            _btnAddRespond.Visible = false;
+            _btnAddPatient.Visible = false;
+            _btnAddDoctor.Visible = true;
+            _btnAddCar.Visible = false;
+            _pnlResponds.Controls.Clear();
+            int index = 0;
+            foreach (var doctor in _doctors)
+            {
+                DoctorItemControl control3 = new(doctor);
+                control3.Location = new Point(0, (control3.Height * index) + 10);
+                control3.OnItemClick += Control3_OnItemClick;
+                control3.OnDeleteClick += Control3_OnDeleteClick;
+                _pnlResponds.Controls.Add(control3);
+                index++;
+            }
+        }
+        private void _btnCars_Click(object sender, EventArgs e)
+        {
+            LoadFromSql();
+            HideDoctorLabels();
+            HidePatientLabels();
+            ShowCarLabels();
+            HideRespondLabels();
+            _btnAddDoctor.Visible = false;
+            _btnAddPatient.Visible = false;
+            _btnAddRespond.Visible = false;
+            _btnAddCar.Visible = true;
+            _pnlResponds.Controls.Clear();
+            int index = 0;
+            foreach (var car in _cars)
+            {
+                CarItemControl carControl = new(car);
+                carControl.Location = new Point(0, (carControl.Height * index) + 10);
+                carControl.OnItemClick += CarControl_OnItemClick;
+                carControl.OnDeleteClick += CarControl_OnDeleteClick;
+                _pnlResponds.Controls.Add(carControl);
+                index++;
+            }
+        }
+        private void _btnSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForm sett = new SettingsForm(_doctor, _service);
+            sett.Show();
+        }
+        private void _btnAddRespond_Click(object sender, EventArgs e)
+        {
+            RespondItemAddForm AddForm = new(_service, _doctor);
+            AddForm.Show();
+        }
+        private void _btnAddPatient_Click(object sender, EventArgs e)
+        {
+            PatientItemAddForm AddForm2 = new PatientItemAddForm(_service);
+            AddForm2.Show();
+        }
+        private void _btnAddDoctor_Click(object sender, EventArgs e)
+        {
+            if (_doctor.Rank == "Head" || _doctor.Rank == "Dean")
+            {
+                DoctorItemAddForm AddForm3 = new DoctorItemAddForm(_service);
+                AddForm3.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sorry, you don't have permissions to do this.");
+            }
+        }
+        private void _btnAddCar_Click(object sender, EventArgs e)
+        {
+            if (_doctor.Rank == "Head" || _doctor.Rank == "Dean")
+            {
+                CarItemAddForm carAdd = new(_service);
+                carAdd.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sorry, you don't have permissions to do that.");
+            }
+        }
+        private void HideCarLabels()
+        {
+            label22.Visible = false;
+            label23.Visible = false;
+            label24.Visible = false;
+        }
+        private void ShowCarLabels()
+        {
+            label22.Visible = true;
+            label23.Visible = true;
+            label24.Visible = true;
+        }
         private void HideRespondLabels()
         {
             label1.Visible = false;
@@ -165,31 +271,11 @@ namespace EMS_RS.Forms
             label20.Visible = true;
             label21.Visible = true;
         }
-
-        private void _btnPatients_Click(object sender, EventArgs e)
+        public void Control_OnItemClick(RespondModel respond, RespondItemControl sender)
         {
-            _pnlResponds.Visible = true;
-            HideSettings();
-            LoadFromSql();
-            HideRespondLabels();
-            HideDoctorLabels();
-            ShowPatientLabels();
-            _btnAddPatient.Visible = true;
-            _btnAddDoctor.Visible = false;
-            _btnAddRespond.Visible = false;
-            _pnlResponds.Controls.Clear();
-            int index = 0;
-            foreach (var patient in _patients)
-            {
-                PatientItemControl control2 = new(patient);
-                control2.Location = new Point(0, (control2.Height * index) + 10);
-                control2.OnItemClick += Control2_OnItemClick;
-                control2.OnDeleteClick += Control2_OnDeleteClick;
-                _pnlResponds.Controls.Add(control2);
-                index++;
-            }
+            RespondItemEditForm editForm = new RespondItemEditForm(_service, respond);
+            editForm.Show();
         }
-
         private void Control2_OnDeleteClick(PatientModel patient, PatientItemControl sender)
         {
             DialogResult myResult = MessageBox.Show("Are you sure you want to delete this role?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -197,39 +283,12 @@ namespace EMS_RS.Forms
             {
                 _service.DeletePatient(patient, patient.Patient_Id);
             }
-            else
-            {
-
-            }
         }
 
         private void Control2_OnItemClick(PatientModel patient, PatientItemControl sender)
         {
             PatientItemEditForm patientEdit = new(patient, _service);
             patientEdit.Show();
-        }
-
-        private void _btnDoctors_Click(object sender, EventArgs e)
-        {
-            _pnlResponds.Visible = true;
-            HideSettings();
-            LoadFromSql();
-            HideRespondLabels();
-            HidePatientLabels();
-            ShowDoctorLabels();
-            _btnAddPatient.Visible = false;
-            _btnAddDoctor.Visible = true;
-            _pnlResponds.Controls.Clear();
-            int index = 0;
-            foreach (var doctor in _doctors)
-            {
-                DoctorItemControl control3 = new(doctor);
-                control3.Location = new Point(0, (control3.Height * index) + 10);
-                control3.OnItemClick += Control3_OnItemClick;
-                control3.OnDeleteClick += Control3_OnDeleteClick;
-                _pnlResponds.Controls.Add(control3);
-                index++;
-            }
         }
 
         private void Control3_OnDeleteClick(DoctorModel doctor, DoctorItemControl sender)
@@ -271,17 +330,25 @@ namespace EMS_RS.Forms
                 MessageBox.Show("Sorry, you don't have permissions to do that.");
             }
         }
-
-        private void _btnSettings_Click(object sender, EventArgs e)
+        private void CarControl_OnItemClick(CarModel car, CarItemControl sender)
         {
-            SettingsForm sett = new SettingsForm(_doctor, _service);
-            sett.Show();
+            CarItemEditForm carEdit = new(car, _service);
+            carEdit.Show();
         }
-
-        private void _btnAddPatient_Click(object sender, EventArgs e)
+        private void CarControl_OnDeleteClick(CarModel car, CarItemControl sender)
         {
-            PatientItemAddForm AddForm2 = new PatientItemAddForm(_service);
-            AddForm2.Show();
+            if (_doctor.Rank == "Head" || _doctor.Rank == "Dean")
+            {
+                DialogResult myResult = MessageBox.Show("Are you sure you want to delete this role?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (myResult == DialogResult.OK)
+                {
+                    _service.DeleteCar(car, car.Car_Id);
+                }
+                else
+                {
+
+                }
+            }
         }
 
         private void MainForm_Deactivate(object sender, EventArgs e)
@@ -292,19 +359,6 @@ namespace EMS_RS.Forms
         private void MainForm_Activated(object sender, EventArgs e)
         {
             LoadFromSql();
-        }
-
-        private void _btnAddDoctor_Click(object sender, EventArgs e)
-        {
-            if (_doctor.Rank == "Head" || _doctor.Rank == "Dean")
-            {
-                DoctorItemAddForm AddForm3 = new DoctorItemAddForm(_service);
-                AddForm3.Show();
-            }
-            else
-            {
-                MessageBox.Show("Sorry, you don't have permissions to do this.");
-            }
         }
     }
 }

@@ -429,6 +429,16 @@ namespace EMS_RS.Services
                 command.ExecuteNonQuery();
             }
         }
+        public void InsertCar(CarModel car)
+        {
+            string insertSql = $"INSERT INTO Car (name, plate) VALUES (@name, @plate)";
+            using (SqlCommand command = new SqlCommand(insertSql, _connection))
+            {
+                command.Parameters.AddWithValue("@name", car.Name);
+                command.Parameters.AddWithValue("@plate", car.Plate);
+                command.ExecuteNonQuery();
+            }
+        }
         public void UpdateRespond(RespondModel respond, int Id)
         {
             string cmd = $"UPDATE Respond SET price = '{respond.Price}', car_id = '{respond.Car_Id}', patient_id = '{respond.Patient_Id}' WHERE respond_id = {Id}";
@@ -455,6 +465,12 @@ namespace EMS_RS.Services
             SqlCommand command = new(cmd, _connection);
             command.ExecuteNonQuery();
         }
+        public void UpdateCar(CarModel car, int Id)
+        {
+            string cmd = $"UPDATE Car SET name = '{car.Name}', plate = '{car.Plate}' WHERE car_id = {Id}";
+            SqlCommand command = new(cmd, _connection);
+            command.ExecuteNonQuery();
+        }
         public void DeleteRespond(RespondModel respond, int Id)
         {
             string cmd = $"DELETE FROM Respond WHERE respond_id = @ID";
@@ -476,6 +492,15 @@ namespace EMS_RS.Services
         public void DeleteDoctor(DoctorModel doctor, int Id)
         {
             string cmd = $"DELETE FROM Doctor WHERE doctor_id = @ID";
+            using (SqlCommand command = new SqlCommand(cmd, _connection))
+            {
+                command.Parameters.AddWithValue("@ID", Id);
+                command.ExecuteNonQuery();
+            }
+        }
+        public void DeleteCar(CarModel car, int Id)
+        {
+            string cmd = $"DELETE FROM Car WHERE car_id = @ID";
             using (SqlCommand command = new SqlCommand(cmd, _connection))
             {
                 command.Parameters.AddWithValue("@ID", Id);

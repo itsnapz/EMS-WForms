@@ -34,6 +34,14 @@ namespace EMS_RS.Forms
             {
                 _service.UpdateDoctorPassword(_txtNewPassword.Text, _doctor.Doctor_Id);
             }
+            else if (_txtOldPassword.Text != _doctor.Password)
+            {
+                MessageBox.Show("Wrong old password.");
+            }
+            else if (_txtNewPassword.Text != _txtNewPasswordConfirm.Text)
+            {
+                MessageBox.Show("Password is not the same.");
+            }
         }
     }
 }

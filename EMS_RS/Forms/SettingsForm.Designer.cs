@@ -38,6 +38,7 @@
             // 
             this._txtOldPassword.Location = new System.Drawing.Point(190, 34);
             this._txtOldPassword.Name = "_txtOldPassword";
+            this._txtOldPassword.PlaceholderText = "Old password";
             this._txtOldPassword.Size = new System.Drawing.Size(100, 23);
             this._txtOldPassword.TabIndex = 0;
             // 
@@ -45,6 +46,7 @@
             // 
             this._txtNewPassword.Location = new System.Drawing.Point(190, 81);
             this._txtNewPassword.Name = "_txtNewPassword";
+            this._txtNewPassword.PlaceholderText = "New password";
             this._txtNewPassword.Size = new System.Drawing.Size(100, 23);
             this._txtNewPassword.TabIndex = 1;
             // 
@@ -52,6 +54,7 @@
             // 
             this._txtNewPasswordConfirm.Location = new System.Drawing.Point(190, 130);
             this._txtNewPasswordConfirm.Name = "_txtNewPasswordConfirm";
+            this._txtNewPasswordConfirm.PlaceholderText = "Re-enter new";
             this._txtNewPasswordConfirm.Size = new System.Drawing.Size(100, 23);
             this._txtNewPasswordConfirm.TabIndex = 2;
             // 
