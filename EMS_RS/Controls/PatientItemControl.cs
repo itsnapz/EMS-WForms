@@ -16,6 +16,8 @@ namespace EMS_RS.Controls
     {
         public delegate void ItemClick(PatientModel patient, PatientItemControl sender);
         public event ItemClick OnItemClick;
+        public delegate void DeleteClick(PatientModel patient, PatientItemControl sender);
+        public event DeleteClick OnDeleteClick;
         public PatientModel _patient { get; set; }
         public PatientItemControl(PatientModel patient)
         {
@@ -46,7 +48,7 @@ namespace EMS_RS.Controls
 
         private void _btnDelete_Click(object sender, EventArgs e)
         {
-
+            OnDeleteClick.Invoke(_patient, this);
         }
     }
 }

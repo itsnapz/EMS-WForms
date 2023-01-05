@@ -58,8 +58,22 @@ namespace EMS_RS.Forms
                 RespondItemControl control = new(respond);
                 control.Location = new Point(0, (control.Height * index) + 10);
                 control.OnItemClick += Control_OnItemClick;
+                control.OnDeleteClick += Control_OnDeleteClick;
                 _pnlResponds.Controls.Add(control);
                 index++;
+            }
+        }
+
+        private void Control_OnDeleteClick(RespondModel respond, RespondItemControl sender)
+        {
+            DialogResult myResult = MessageBox.Show("Are you sure you want to delete this role?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (myResult == DialogResult.OK)
+            {
+                _service.DeleteRespond(respond, respond.Respond_Id);
+            }
+            else
+            {
+
             }
         }
 
@@ -164,8 +178,22 @@ namespace EMS_RS.Forms
                 PatientItemControl control2 = new(patient);
                 control2.Location = new Point(0, (control2.Height * index) + 10);
                 control2.OnItemClick += Control2_OnItemClick;
+                control2.OnDeleteClick += Control2_OnDeleteClick;
                 _pnlResponds.Controls.Add(control2);
                 index++;
+            }
+        }
+
+        private void Control2_OnDeleteClick(PatientModel patient, PatientItemControl sender)
+        {
+            DialogResult myResult = MessageBox.Show("Are you sure you want to delete this role?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (myResult == DialogResult.OK)
+            {
+                _service.DeletePatient(patient, patient.Patient_Id);
+            }
+            else
+            {
+
             }
         }
 
@@ -190,8 +218,22 @@ namespace EMS_RS.Forms
                 DoctorItemControl control3 = new(doctor);
                 control3.Location = new Point(0, (control3.Height * index) + 10);
                 control3.OnItemClick += Control3_OnItemClick;
+                control3.OnDeleteClick += Control3_OnDeleteClick;
                 _pnlResponds.Controls.Add(control3);
                 index++;
+            }
+        }
+
+        private void Control3_OnDeleteClick(DoctorModel doctor, DoctorItemControl sender)
+        {
+            DialogResult myResult = MessageBox.Show("Are you sure you want to delete this role?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (myResult == DialogResult.OK)
+            {
+                _service.DeleteDoctor(doctor, doctor.Doctor_Id);
+            }
+            else
+            {
+
             }
         }
 

@@ -16,6 +16,8 @@ namespace EMS_RS.Controls
         public RespondModel _respond { get; set; }
         public delegate void ItemClick(RespondModel respond, RespondItemControl sender);
         public event ItemClick OnItemClick;
+        public delegate void DeleteClick(RespondModel respond, RespondItemControl sender);
+        public event DeleteClick OnDeleteClick;
         public RespondItemControl(RespondModel respond)
         {
             _respond = respond;
@@ -49,7 +51,7 @@ namespace EMS_RS.Controls
 
         private void _btnDelete_Click(object sender, EventArgs e)
         {
-
+            OnDeleteClick.Invoke(_respond, this);
         }
     }
 }

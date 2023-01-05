@@ -113,6 +113,7 @@
             this._btnDelete.TabIndex = 8;
             this._btnDelete.Text = "X";
             this._btnDelete.UseVisualStyleBackColor = false;
+            this._btnDelete.Click += new System.EventHandler(this._btnDelete_Click);
             // 
             // DoctorItemControl
             // 

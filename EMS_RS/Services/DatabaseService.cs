@@ -447,5 +447,32 @@ namespace EMS_RS.Services
             SqlCommand command = new(cmd, _connection);
             command.ExecuteNonQuery();
         }
+        public void DeleteRespond(RespondModel respond, int Id)
+        {
+            string cmd = $"DELETE FROM Respond WHERE respond_id = @ID";
+            using (SqlCommand command = new SqlCommand(cmd, _connection))
+            {
+                command.Parameters.AddWithValue("@ID", Id);
+                command.ExecuteNonQuery();
+            }
+        }
+        public void DeletePatient(PatientModel patient, int Id)
+        {
+            string cmd = $"DELETE FROM Patient WHERE patient_id = @ID";
+            using (SqlCommand command = new SqlCommand(cmd, _connection))
+            {
+                command.Parameters.AddWithValue("@ID", Id);
+                command.ExecuteNonQuery();
+            }
+        }
+        public void DeleteDoctor(DoctorModel doctor, int Id)
+        {
+            string cmd = $"DELETE FROM Doctor WHERE doctor_id = @ID";
+            using (SqlCommand command = new SqlCommand(cmd, _connection))
+            {
+                command.Parameters.AddWithValue("@ID", Id);
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }
