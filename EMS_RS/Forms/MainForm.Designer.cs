@@ -92,7 +92,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Crimson;
             this.pictureBox1.Location = new System.Drawing.Point(-4, -1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(178, 401);
+            this.pictureBox1.Size = new System.Drawing.Size(178, 407);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -102,7 +102,7 @@
             this._pnlResponds.Location = new System.Drawing.Point(173, 32);
             this._pnlResponds.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this._pnlResponds.Name = "_pnlResponds";
-            this._pnlResponds.Size = new System.Drawing.Size(773, 362);
+            this._pnlResponds.Size = new System.Drawing.Size(789, 374);
             this._pnlResponds.TabIndex = 4;
             // 
             // label1
@@ -184,10 +184,11 @@
             // 
             // _btnAddRespond
             // 
-            this._btnAddRespond.Location = new System.Drawing.Point(46, 364);
+            this._btnAddRespond.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnAddRespond.Location = new System.Drawing.Point(46, 358);
             this._btnAddRespond.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this._btnAddRespond.Name = "_btnAddRespond";
-            this._btnAddRespond.Size = new System.Drawing.Size(82, 22);
+            this._btnAddRespond.Size = new System.Drawing.Size(82, 25);
             this._btnAddRespond.TabIndex = 12;
             this._btnAddRespond.Text = "Add";
             this._btnAddRespond.UseVisualStyleBackColor = true;
@@ -197,6 +198,9 @@
             // 
             this._btnResponds.BackColor = System.Drawing.Color.Crimson;
             this._btnResponds.FlatAppearance.BorderSize = 0;
+            this._btnResponds.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
+            this._btnResponds.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this._btnResponds.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
             this._btnResponds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnResponds.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnResponds.ForeColor = System.Drawing.Color.White;
@@ -215,6 +219,9 @@
             // 
             this._btnDoctors.BackColor = System.Drawing.Color.Crimson;
             this._btnDoctors.FlatAppearance.BorderSize = 0;
+            this._btnDoctors.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
+            this._btnDoctors.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this._btnDoctors.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
             this._btnDoctors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnDoctors.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnDoctors.ForeColor = System.Drawing.Color.White;
@@ -233,6 +240,9 @@
             // 
             this._btnSettings.BackColor = System.Drawing.Color.Crimson;
             this._btnSettings.FlatAppearance.BorderSize = 0;
+            this._btnSettings.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
+            this._btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this._btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
             this._btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSettings.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnSettings.ForeColor = System.Drawing.Color.White;
@@ -251,6 +261,9 @@
             // 
             this._btnPatients.BackColor = System.Drawing.Color.Crimson;
             this._btnPatients.FlatAppearance.BorderSize = 0;
+            this._btnPatients.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
+            this._btnPatients.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this._btnPatients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Brown;
             this._btnPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnPatients.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnPatients.ForeColor = System.Drawing.Color.White;
@@ -407,10 +420,11 @@
             // 
             // _btnAddPatient
             // 
-            this._btnAddPatient.Location = new System.Drawing.Point(46, 364);
+            this._btnAddPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnAddPatient.Location = new System.Drawing.Point(46, 358);
             this._btnAddPatient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this._btnAddPatient.Name = "_btnAddPatient";
-            this._btnAddPatient.Size = new System.Drawing.Size(82, 22);
+            this._btnAddPatient.Size = new System.Drawing.Size(82, 25);
             this._btnAddPatient.TabIndex = 17;
             this._btnAddPatient.Text = "Add";
             this._btnAddPatient.UseVisualStyleBackColor = true;
@@ -418,10 +432,11 @@
             // 
             // _btnAddDoctor
             // 
-            this._btnAddDoctor.Location = new System.Drawing.Point(46, 364);
+            this._btnAddDoctor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnAddDoctor.Location = new System.Drawing.Point(46, 358);
             this._btnAddDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this._btnAddDoctor.Name = "_btnAddDoctor";
-            this._btnAddDoctor.Size = new System.Drawing.Size(82, 22);
+            this._btnAddDoctor.Size = new System.Drawing.Size(82, 25);
             this._btnAddDoctor.TabIndex = 18;
             this._btnAddDoctor.Text = "Add";
             this._btnAddDoctor.UseVisualStyleBackColor = true;
@@ -429,9 +444,9 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 394);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(962, 406);
             this.Controls.Add(this._btnAddDoctor);
             this.Controls.Add(this._btnAddPatient);
             this.Controls.Add(this.label15);
@@ -464,6 +479,7 @@
             this.Controls.Add(this._lblRank);
             this.Controls.Add(this._lblName);
             this.Controls.Add(this.pictureBox1);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "MainForm";

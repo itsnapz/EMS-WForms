@@ -35,6 +35,7 @@
             this._lblDoctorPhoneNumber = new System.Windows.Forms.Label();
             this._lblDoctorReputation = new System.Windows.Forms.Label();
             this._lblDoctorNameSurname = new System.Windows.Forms.Label();
+            this._btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _lblDoctorId
@@ -100,10 +101,24 @@
             this._lblDoctorNameSurname.TabIndex = 7;
             this._lblDoctorNameSurname.Text = "Name Surname";
             // 
+            // _btnDelete
+            // 
+            this._btnDelete.BackColor = System.Drawing.Color.Crimson;
+            this._btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this._btnDelete.ForeColor = System.Drawing.Color.Black;
+            this._btnDelete.Location = new System.Drawing.Point(743, 12);
+            this._btnDelete.Name = "_btnDelete";
+            this._btnDelete.Size = new System.Drawing.Size(26, 23);
+            this._btnDelete.TabIndex = 8;
+            this._btnDelete.Text = "X";
+            this._btnDelete.UseVisualStyleBackColor = false;
+            // 
             // DoctorItemControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this._btnDelete);
             this.Controls.Add(this._lblDoctorNameSurname);
             this.Controls.Add(this._lblDoctorReputation);
             this.Controls.Add(this._lblDoctorPhoneNumber);
@@ -129,5 +144,6 @@
         private Label _lblDoctorPhoneNumber;
         private Label _lblDoctorReputation;
         private Label _lblDoctorNameSurname;
+        private Button _btnDelete;
     }
 }

@@ -36,6 +36,7 @@ namespace EMS_RS.Forms
             HidePatientLabels();
             HideDoctorLabels();
             _btnAddPatient.Visible = false;
+            _btnAddDoctor.Visible = false;
             _lblName.Text = _doctor.Name + " " + _doctor.Surname;
             _lblRank.Text = _doctor.Rank;
             LoadFromSql();

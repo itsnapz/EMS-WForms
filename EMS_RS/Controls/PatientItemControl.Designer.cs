@@ -35,6 +35,7 @@
             this._lblPatientCity = new System.Windows.Forms.Label();
             this._lblPatientPhoneNumber = new System.Windows.Forms.Label();
             this._lblPatientZIP = new System.Windows.Forms.Label();
+            this._btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _lblPatientId
@@ -100,10 +101,25 @@
             this._lblPatientZIP.TabIndex = 6;
             this._lblPatientZIP.Text = "ZIP";
             // 
+            // _btnDelete
+            // 
+            this._btnDelete.BackColor = System.Drawing.Color.Crimson;
+            this._btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this._btnDelete.ForeColor = System.Drawing.Color.Black;
+            this._btnDelete.Location = new System.Drawing.Point(743, 12);
+            this._btnDelete.Name = "_btnDelete";
+            this._btnDelete.Size = new System.Drawing.Size(26, 23);
+            this._btnDelete.TabIndex = 9;
+            this._btnDelete.Text = "X";
+            this._btnDelete.UseVisualStyleBackColor = false;
+            this._btnDelete.Click += new System.EventHandler(this._btnDelete_Click);
+            // 
             // PatientItemControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this._btnDelete);
             this.Controls.Add(this._lblPatientZIP);
             this.Controls.Add(this._lblPatientPhoneNumber);
             this.Controls.Add(this._lblPatientCity);
@@ -130,5 +146,6 @@
         private Label _lblPatientCity;
         private Label _lblPatientPhoneNumber;
         private Label _lblPatientZIP;
+        private Button _btnDelete;
     }
 }

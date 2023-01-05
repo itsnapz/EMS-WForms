@@ -43,5 +43,10 @@ namespace EMS_RS.Controls
         {
             OnItemClick.Invoke(_patient, this);
         }
+
+        private void _btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
