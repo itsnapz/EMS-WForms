@@ -33,6 +33,7 @@ namespace EMS_RS.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            _pnlResponds.Visible = true;
             HidePatientLabels();
             HideDoctorLabels();
             _btnAddPatient.Visible = false;
@@ -86,6 +87,8 @@ namespace EMS_RS.Forms
 
         private void _btnResponds_Click(object sender, EventArgs e)
         {
+            _pnlResponds.Visible = true;
+            HideSettings();
             HidePatientLabels();
             HideDoctorLabels();
             ShowRespondLabels();
@@ -165,6 +168,8 @@ namespace EMS_RS.Forms
 
         private void _btnPatients_Click(object sender, EventArgs e)
         {
+            _pnlResponds.Visible = true;
+            HideSettings();
             LoadFromSql();
             HideRespondLabels();
             HideDoctorLabels();
@@ -206,6 +211,8 @@ namespace EMS_RS.Forms
 
         private void _btnDoctors_Click(object sender, EventArgs e)
         {
+            _pnlResponds.Visible = true;
+            HideSettings();
             LoadFromSql();
             HideRespondLabels();
             HidePatientLabels();
@@ -267,7 +274,8 @@ namespace EMS_RS.Forms
 
         private void _btnSettings_Click(object sender, EventArgs e)
         {
-
+            SettingsForm sett = new SettingsForm(_doctor, _service);
+            sett.Show();
         }
 
         private void _btnAddPatient_Click(object sender, EventArgs e)

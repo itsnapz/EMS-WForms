@@ -441,6 +441,14 @@ namespace EMS_RS.Services
             SqlCommand command = new(cmd, _connection);
             command.ExecuteNonQuery();
         }
+        public void UpdateDoctorPassword(string password, int Id)
+        {
+            string cmd = $"UPDATE Doctor SET password = '{password}' WHERE doctor_id = '{Id}'";
+            using (SqlCommand command = new SqlCommand(cmd, _connection))
+            {
+                command.ExecuteNonQuery();
+            }
+        }
         public void UpdatePatient(PatientModel patient, int Id)
         {
             string cmd = $"UPDATE Patient SET name = '{patient.Name}', surname = '{patient.Surname}', birthday = '{patient.Birthday}', sex = '{patient.Sex}', street = '{patient.Street}', city = '{patient.City}', country = '{patient.Country}', zip = '{patient.Zip}', phone_number = '{patient.Phone_Number}' WHERE patient_id = {Id}";
