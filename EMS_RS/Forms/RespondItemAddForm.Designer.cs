@@ -40,24 +40,28 @@
             // 
             // _btnSave
             // 
+            this._btnSave.BackColor = System.Drawing.Color.White;
+            this._btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSave.Location = new System.Drawing.Point(318, 182);
             this._btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this._btnSave.Name = "_btnSave";
             this._btnSave.Size = new System.Drawing.Size(82, 22);
             this._btnSave.TabIndex = 0;
             this._btnSave.Text = "Save";
-            this._btnSave.UseVisualStyleBackColor = true;
+            this._btnSave.UseVisualStyleBackColor = false;
             this._btnSave.Click += new System.EventHandler(this._btnSave_Click);
             // 
             // _btnCancel
             // 
+            this._btnCancel.BackColor = System.Drawing.Color.White;
+            this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.Location = new System.Drawing.Point(425, 182);
             this._btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(82, 22);
             this._btnCancel.TabIndex = 1;
             this._btnCancel.Text = "Cancel";
-            this._btnCancel.UseVisualStyleBackColor = true;
+            this._btnCancel.UseVisualStyleBackColor = false;
             this._btnCancel.Click += new System.EventHandler(this._btnCancel_Click);
             // 
             // _cmbPatients
@@ -72,9 +76,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 15);
+            this.label1.Size = new System.Drawing.Size(53, 19);
             this.label1.TabIndex = 3;
             this.label1.Text = "Patient";
             // 
@@ -88,9 +94,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(170, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 15);
+            this.label2.Size = new System.Drawing.Size(40, 19);
             this.label2.TabIndex = 5;
             this.label2.Text = "Price";
             // 
@@ -106,9 +114,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(318, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 15);
+            this.label3.Size = new System.Drawing.Size(30, 19);
             this.label3.TabIndex = 7;
             this.label3.Text = "Car";
             // 
@@ -116,6 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(514, 212);
             this.Controls.Add(this.label3);
             this.Controls.Add(this._cmbCars);

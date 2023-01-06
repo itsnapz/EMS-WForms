@@ -66,48 +66,58 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(29, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 15);
+            this.label1.Size = new System.Drawing.Size(51, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "Patient";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(199, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 15);
+            this.label2.Size = new System.Drawing.Size(37, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Price";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(358, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 15);
+            this.label3.Size = new System.Drawing.Size(28, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Car";
             // 
             // _btnSave
             // 
+            this._btnSave.BackColor = System.Drawing.Color.White;
+            this._btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSave.Location = new System.Drawing.Point(346, 131);
             this._btnSave.Name = "_btnSave";
             this._btnSave.Size = new System.Drawing.Size(75, 23);
             this._btnSave.TabIndex = 6;
             this._btnSave.Text = "Save";
-            this._btnSave.UseVisualStyleBackColor = true;
+            this._btnSave.UseVisualStyleBackColor = false;
             this._btnSave.Click += new System.EventHandler(this._btnSave_Click);
             // 
             // _btnCancel
             // 
+            this._btnCancel.BackColor = System.Drawing.Color.White;
+            this._btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCancel.Location = new System.Drawing.Point(444, 131);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 23);
             this._btnCancel.TabIndex = 7;
             this._btnCancel.Text = "Cancel";
-            this._btnCancel.UseVisualStyleBackColor = true;
+            this._btnCancel.UseVisualStyleBackColor = false;
             this._btnCancel.Click += new System.EventHandler(this._btnCancel_Click);
             // 
             // RespondItemEditForm
@@ -115,6 +125,7 @@
             this.AcceptButton = this._btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Crimson;
             this.CancelButton = this._btnCancel;
             this.ClientSize = new System.Drawing.Size(531, 166);
             this.Controls.Add(this._btnCancel);
