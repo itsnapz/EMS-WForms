@@ -15,7 +15,6 @@ namespace EMS_RS.Forms
     public partial class CarItemAddForm : Form
     {
         private DatabaseService _service;
-        private CarModel _car { get; set; }
         public CarItemAddForm(DatabaseService service)
         {
             InitializeComponent();
