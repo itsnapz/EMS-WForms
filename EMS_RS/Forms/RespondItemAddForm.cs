@@ -62,15 +62,30 @@ namespace EMS_RS.Forms
 
         private void _btnSave_Click(object sender, EventArgs e)
         {
-            RespondModel model = new RespondModel()
+            if (_cmbPatients.SelectedItem == null || _cmbPatients.SelectedItem == null)
             {
-                Doctor_Id = _doctor.Doctor_Id,
-                Price = int.Parse(_txtPrice.Text),
-                Car_Id = _car.Car_Id,
-                Patient_Id = _patient.Patient_Id,
-            };
-            _service.InsertRespond(model);
-            Close();
+                    MessageBox.Show("Please fill in the boxes.");
+            }
+            else
+            {
+                int value;
+                if (int.TryParse(_txtPrice.Text, out value))
+                {
+                    RespondModel model = new RespondModel()
+                    {
+                        Doctor_Id = _doctor.Doctor_Id,
+                        Price = int.Parse(_txtPrice.Text),
+                        Car_Id = _car.Car_Id,
+                        Patient_Id = _patient.Patient_Id,
+                    };
+                    _service.InsertRespond(model);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Fill in the boxes.");
+                }
+            }
         }
 
         private void _cmbPatients_SelectionChangeCommitted(object sender, EventArgs e)

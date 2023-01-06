@@ -40,21 +40,36 @@ namespace EMS_RS.Forms
 
         private void _btnSave_Click(object sender, EventArgs e)
         {
-            DoctorModel model = new DoctorModel()
+            if (_txtName.Text != string.Empty || _txtSurname.Text != string.Empty || _cmbSex.SelectedItem != null || _cmbRank.SelectedItem != null || _cmbHospital.SelectedItem != null || _txtPassword.Text != string.Empty || _txtCallSign.Text != string.Empty)
             {
-                Name = _txtName.Text,
-                Surname = _txtSurname.Text,
-                Sex = _cmbSex.SelectedItem.ToString(),
-                Rank = _cmbRank.SelectedItem.ToString(),
-                Phone_Number = int.Parse(_txtPhoneNumber.Text),
-                Hospital_Id = _hospital.Hospital_Id,
-                Password = _txtPassword.Text,
-                Call_Sign = _txtCallSign.Text,
-                Birthday = _pckDate.Value,
-                Reputation = 0,
-            };
-            _service.InsertDoctor(model);
-            Close();
+                int value;
+                if (int.TryParse(_txtPhoneNumber.Text, out value))
+                {
+                    DoctorModel model = new DoctorModel()
+                    {
+                        Name = _txtName.Text,
+                        Surname = _txtSurname.Text,
+                        Sex = _cmbSex.SelectedItem.ToString(),
+                        Rank = _cmbRank.SelectedItem.ToString(),
+                        Phone_Number = int.Parse(_txtPhoneNumber.Text),
+                        Hospital_Id = _hospital.Hospital_Id,
+                        Password = _txtPassword.Text,
+                        Call_Sign = _txtCallSign.Text,
+                        Birthday = _pckDate.Value,
+                        Reputation = 0,
+                    };
+                    _service.InsertDoctor(model);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Please fill in the phone number.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please fill in all the boxes.");
+            }
         }
 
         private void _btnCancel_Click(object sender, EventArgs e)

@@ -40,6 +40,7 @@ namespace EMS_RS.Forms
             HideCarLabels();
             _btnAddPatient.Visible = false;
             _btnAddDoctor.Visible = false;
+            _btnAddCar.Visible = false;
             _lblName.Parent = pictureBox1;
             _lblName.Text = _doctor.Name + " " + _doctor.Surname;
             _lblRank.Text = _doctor.Rank;
@@ -329,7 +330,7 @@ namespace EMS_RS.Forms
         }
         private void CarControl_OnItemClick(CarModel car, CarItemControl sender)
         {
-            if (_doctor.Rank == "Head" && _doctor.Rank == "Dean")
+            if (_doctor.Rank == "Head" || _doctor.Rank == "Dean")
             {
                 CarItemEditForm carEdit = new(car, _service);
                 carEdit.Show();

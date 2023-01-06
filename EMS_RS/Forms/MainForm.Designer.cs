@@ -203,9 +203,9 @@
             // 
             this._btnResponds.BackColor = System.Drawing.Color.Crimson;
             this._btnResponds.FlatAppearance.BorderSize = 0;
-            this._btnResponds.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
+            this._btnResponds.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnResponds.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._btnResponds.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._btnResponds.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnResponds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnResponds.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnResponds.ForeColor = System.Drawing.Color.White;
@@ -224,9 +224,9 @@
             // 
             this._btnDoctors.BackColor = System.Drawing.Color.Crimson;
             this._btnDoctors.FlatAppearance.BorderSize = 0;
-            this._btnDoctors.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
+            this._btnDoctors.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnDoctors.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._btnDoctors.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._btnDoctors.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnDoctors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnDoctors.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnDoctors.ForeColor = System.Drawing.Color.White;
@@ -245,9 +245,9 @@
             // 
             this._btnSettings.BackColor = System.Drawing.Color.Crimson;
             this._btnSettings.FlatAppearance.BorderSize = 0;
-            this._btnSettings.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
+            this._btnSettings.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnSettings.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnSettings.ForeColor = System.Drawing.Color.White;
@@ -266,9 +266,9 @@
             // 
             this._btnPatients.BackColor = System.Drawing.Color.Crimson;
             this._btnPatients.FlatAppearance.BorderSize = 0;
-            this._btnPatients.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
+            this._btnPatients.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnPatients.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._btnPatients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._btnPatients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnPatients.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnPatients.ForeColor = System.Drawing.Color.White;
@@ -451,9 +451,9 @@
             // 
             this._btnCars.BackColor = System.Drawing.Color.Crimson;
             this._btnCars.FlatAppearance.BorderSize = 0;
-            this._btnCars.FlatAppearance.CheckedBackColor = System.Drawing.Color.Brown;
+            this._btnCars.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnCars.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this._btnCars.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this._btnCars.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this._btnCars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._btnCars.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this._btnCars.ForeColor = System.Drawing.Color.White;

@@ -33,20 +33,35 @@ namespace EMS_RS.Forms
 
         private void _btnSave_Click(object sender, EventArgs e)
         {
-            PatientModel model = new PatientModel()
+            if (_txtPatientName.Text != string.Empty || _txtPatientSurname.Text != string.Empty || _txtPatientStreet.Text != string.Empty || _txtPatientCity.Text != string.Empty || _txtPatientCountry.Text != string.Empty || _txtPatientZip.Text != string.Empty || _cmbPatientSex.SelectedItem != null)
             {
-                Name = _txtPatientName.Text,
-                Surname = _txtPatientSurname.Text,
-                Birthday = _pckBirthday.Value,
-                Sex = _cmbPatientSex.SelectedItem.ToString(),
-                Street = _txtPatientStreet.Text,
-                City = _txtPatientCity.Text,
-                Country = _txtPatientCountry.Text,
-                Zip = _txtPatientZip.Text,
-                Phone_Number = int.Parse(_txtPatientPhoneNumber.Text),
-            };
-            _service.InsertPatient(model);
-            Close();
+                int value;
+                if (int.TryParse(_txtPatientPhoneNumber.Text, out value))
+                {
+                    PatientModel model = new PatientModel()
+                    {
+                        Name = _txtPatientName.Text,
+                        Surname = _txtPatientSurname.Text,
+                        Birthday = _pckBirthday.Value,
+                        Sex = _cmbPatientSex.SelectedItem.ToString(),
+                        Street = _txtPatientStreet.Text,
+                        City = _txtPatientCity.Text,
+                        Country = _txtPatientCountry.Text,
+                        Zip = _txtPatientZip.Text,
+                        Phone_Number = int.Parse(_txtPatientPhoneNumber.Text),
+                    };
+                    _service.InsertPatient(model);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Phone number must be number.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please fill in all boxes.");
+            }
         }
     }
 }
