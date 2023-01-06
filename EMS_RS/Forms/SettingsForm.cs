@@ -33,6 +33,7 @@ namespace EMS_RS.Forms
             if (_txtOldPassword.Text == _doctor.Password && _txtNewPassword.Text == _txtNewPasswordConfirm.Text)
             {
                 _service.UpdateDoctorPassword(_txtNewPassword.Text, _doctor.Doctor_Id);
+                Close();
             }
             else if (_txtOldPassword.Text != _doctor.Password)
             {
