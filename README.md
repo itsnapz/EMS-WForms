@@ -18,3 +18,10 @@
 > -- #### V levé části aplikace se nachází navigační menu.
 > -- #### V horní části lze vidět přihlášeného uživatele a jeho hodnost.
 
+## Zobrazení dat
+
+![image](https://i.imgur.com/R9jHdnN.png)
+
+> -- #### Většina části aplikace zabírá panel s výjezdy, doktory, pacienty a auty.
+> -- #### Pro zobrazení vámi chtěných dat stačí kliknout v navigačním menu co chcete zobrazit.
+
