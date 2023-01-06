@@ -53,7 +53,6 @@ namespace EMS_RS.Forms
             _doctors = _service.GetDoctors().ToList();
             _cars = _service.GetCars().ToList();
         }
-
         private void UpdateResponds()
         {
             _pnlResponds.Controls.Clear();
@@ -68,16 +67,6 @@ namespace EMS_RS.Forms
                 index++;
             }
         }
-
-        private void Control_OnDeleteClick(RespondModel respond, RespondItemControl sender)
-        {
-            DialogResult myResult = MessageBox.Show("Are you sure you want to delete this role?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (myResult == DialogResult.OK)
-            {
-                _service.DeleteRespond(respond, respond.Respond_Id);
-            }
-        }
-
         private void _btnResponds_Click(object sender, EventArgs e)
         {
             HideCarLabels();
@@ -278,10 +267,18 @@ namespace EMS_RS.Forms
         }
         private void Control2_OnDeleteClick(PatientModel patient, PatientItemControl sender)
         {
-            DialogResult myResult = MessageBox.Show("Are you sure you want to delete this role?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult myResult = MessageBox.Show("Are you sure you want to delete this item?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (myResult == DialogResult.OK)
             {
                 _service.DeletePatient(patient, patient.Patient_Id);
+            }
+        }
+        private void Control_OnDeleteClick(RespondModel respond, RespondItemControl sender)
+        {
+            DialogResult myResult = MessageBox.Show("Are you sure you want to delete this item?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (myResult == DialogResult.OK)
+            {
+                _service.DeleteRespond(respond, respond.Respond_Id);
             }
         }
 
@@ -332,8 +329,15 @@ namespace EMS_RS.Forms
         }
         private void CarControl_OnItemClick(CarModel car, CarItemControl sender)
         {
-            CarItemEditForm carEdit = new(car, _service);
-            carEdit.Show();
+            if (_doctor.Rank == "Head" && _doctor.Rank == "Dean")
+            {
+                CarItemEditForm carEdit = new(car, _service);
+                carEdit.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sorry, you don't have permissions to do that.");
+            }
         }
         private void CarControl_OnDeleteClick(CarModel car, CarItemControl sender)
         {
@@ -348,6 +352,10 @@ namespace EMS_RS.Forms
                 {
 
                 }
+            }
+            else
+            {
+                MessageBox.Show("Sorry, you don't have permissions to do that.");
             }
         }
 
