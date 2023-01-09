@@ -18,7 +18,7 @@
 > - #### V levé části aplikace se nachází navigační menu.
 > - #### V horní části lze vidět přihlášeného uživatele a jeho hodnost.
 
-## Zobrazení dat
+## 💾 Zobrazení dat 💾
 
 ![image](https://i.imgur.com/R9jHdnN.png)
 
