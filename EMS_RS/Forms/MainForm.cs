@@ -113,6 +113,7 @@ namespace EMS_RS.Forms
         }
         private void _btnResponds_Click(object sender, EventArgs e)
         {
+            LoadFromSql();
             HideCarLabels();
             HidePatientLabels();
             HideDoctorLabels();
@@ -122,7 +123,6 @@ namespace EMS_RS.Forms
             _btnAddDoctor.Visible = false;
             _btnAddCar.Visible = false;
             UpdateResponds();
-            LoadFromSql();
         }
         private void _btnPatients_Click(object sender, EventArgs e)
         {
@@ -136,7 +136,6 @@ namespace EMS_RS.Forms
             _btnAddRespond.Visible = false;
             _btnAddCar.Visible = false;
             UpdatePatients();
-            LoadFromSql();
         }
         private void _btnDoctors_Click(object sender, EventArgs e)
         {
@@ -150,7 +149,6 @@ namespace EMS_RS.Forms
             _btnAddDoctor.Visible = true;
             _btnAddCar.Visible = false;
             UpdateDoctors();
-            LoadFromSql();
         }
         private void _btnCars_Click(object sender, EventArgs e)
         {
@@ -164,7 +162,6 @@ namespace EMS_RS.Forms
             _btnAddRespond.Visible = false;
             _btnAddCar.Visible = true;
             UpdateCars();
-            LoadFromSql();
         }
         private void _btnSettings_Click(object sender, EventArgs e)
         {
@@ -288,6 +285,8 @@ namespace EMS_RS.Forms
             if (myResult == DialogResult.OK)
             {
                 _service.DeletePatient(patient, patient.Patient_Id);
+                LoadFromSql();
+                UpdatePatients();
             }
         }
         private void Control_OnDeleteClick(RespondModel respond, RespondItemControl sender)
@@ -296,6 +295,8 @@ namespace EMS_RS.Forms
             if (myResult == DialogResult.OK)
             {
                 _service.DeleteRespond(respond, respond.Respond_Id);
+                LoadFromSql();
+                UpdateResponds();
             }
         }
 
@@ -319,6 +320,8 @@ namespace EMS_RS.Forms
                     if (myResult == DialogResult.OK)
                     {
                         _service.DeleteDoctor(doctor, doctor.Doctor_Id);
+                        LoadFromSql();
+                        UpdateDoctors();
                     }
                     else
                     {
@@ -364,6 +367,8 @@ namespace EMS_RS.Forms
                 if (myResult == DialogResult.OK)
                 {
                     _service.DeleteCar(car, car.Car_Id);
+                    LoadFromSql();
+                    UpdateCars();
                 }
                 else
                 {
@@ -384,19 +389,20 @@ namespace EMS_RS.Forms
         private void MainForm_Activated(object sender, EventArgs e)
         {
             LoadFromSql();
+
             if (_btnAddRespond.Visible)
             {
                 UpdateResponds();
             }
-            if (_btnAddDoctor.Visible)
+            else if (_btnAddDoctor.Visible)
             {
                 UpdateDoctors();
             }
-            if (_btnAddPatient.Visible)
+            else if (_btnAddPatient.Visible)
             {
                 UpdatePatients();
             }
-            if (_btnAddCar.Visible)
+            else if (_btnAddCar.Visible)
             {
                 UpdateCars();
             }

@@ -124,9 +124,10 @@
             // 
             // _pckDate
             // 
+            this._pckDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this._pckDate.Location = new System.Drawing.Point(332, 466);
             this._pckDate.Name = "_pckDate";
-            this._pckDate.Size = new System.Drawing.Size(163, 23);
+            this._pckDate.Size = new System.Drawing.Size(100, 23);
             this._pckDate.TabIndex = 8;
             // 
             // label1
