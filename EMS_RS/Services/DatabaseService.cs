@@ -503,8 +503,15 @@ namespace EMS_RS.Services
             string cmd = $"DELETE FROM Car WHERE car_id = @ID";
             using (SqlCommand command = new SqlCommand(cmd, _connection))
             {
-                command.Parameters.AddWithValue("@ID", Id);
-                command.ExecuteNonQuery();
+                try
+                {
+                    command.Parameters.AddWithValue("@ID", Id);
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }

@@ -68,6 +68,49 @@ namespace EMS_RS.Forms
                 index++;
             }
         }
+        private void UpdateDoctors()
+
+        {
+            _pnlResponds.Controls.Clear();
+            int index = 0;
+            foreach (var doctor in _doctors)
+            {
+                DoctorItemControl control3 = new(doctor);
+                control3.Location = new Point(0, (control3.Height * index) + 10);
+                control3.OnItemClick += Control3_OnItemClick;
+                control3.OnDeleteClick += Control3_OnDeleteClick;
+                _pnlResponds.Controls.Add(control3);
+                index++;
+            }
+        }
+        private void UpdatePatients()
+        {
+            _pnlResponds.Controls.Clear();
+            int index = 0;
+            foreach (var patient in _patients)
+            {
+                PatientItemControl control2 = new(patient);
+                control2.Location = new Point(0, (control2.Height * index) + 10);
+                control2.OnItemClick += Control2_OnItemClick;
+                control2.OnDeleteClick += Control2_OnDeleteClick;
+                _pnlResponds.Controls.Add(control2);
+                index++;
+            }
+        }
+        private void UpdateCars()
+        {
+            _pnlResponds.Controls.Clear();
+            int index = 0;
+            foreach (var car in _cars)
+            {
+                CarItemControl carControl = new(car);
+                carControl.Location = new Point(0, (carControl.Height * index) + 10);
+                carControl.OnItemClick += CarControl_OnItemClick;
+                carControl.OnDeleteClick += CarControl_OnDeleteClick;
+                _pnlResponds.Controls.Add(carControl);
+                index++;
+            }
+        }
         private void _btnResponds_Click(object sender, EventArgs e)
         {
             HideCarLabels();
@@ -92,17 +135,8 @@ namespace EMS_RS.Forms
             _btnAddDoctor.Visible = false;
             _btnAddRespond.Visible = false;
             _btnAddCar.Visible = false;
-            _pnlResponds.Controls.Clear();
-            int index = 0;
-            foreach (var patient in _patients)
-            {
-                PatientItemControl control2 = new(patient);
-                control2.Location = new Point(0, (control2.Height * index) + 10);
-                control2.OnItemClick += Control2_OnItemClick;
-                control2.OnDeleteClick += Control2_OnDeleteClick;
-                _pnlResponds.Controls.Add(control2);
-                index++;
-            }
+            UpdatePatients();
+            LoadFromSql();
         }
         private void _btnDoctors_Click(object sender, EventArgs e)
         {
@@ -115,17 +149,8 @@ namespace EMS_RS.Forms
             _btnAddPatient.Visible = false;
             _btnAddDoctor.Visible = true;
             _btnAddCar.Visible = false;
-            _pnlResponds.Controls.Clear();
-            int index = 0;
-            foreach (var doctor in _doctors)
-            {
-                DoctorItemControl control3 = new(doctor);
-                control3.Location = new Point(0, (control3.Height * index) + 10);
-                control3.OnItemClick += Control3_OnItemClick;
-                control3.OnDeleteClick += Control3_OnDeleteClick;
-                _pnlResponds.Controls.Add(control3);
-                index++;
-            }
+            UpdateDoctors();
+            LoadFromSql();
         }
         private void _btnCars_Click(object sender, EventArgs e)
         {
@@ -138,17 +163,8 @@ namespace EMS_RS.Forms
             _btnAddPatient.Visible = false;
             _btnAddRespond.Visible = false;
             _btnAddCar.Visible = true;
-            _pnlResponds.Controls.Clear();
-            int index = 0;
-            foreach (var car in _cars)
-            {
-                CarItemControl carControl = new(car);
-                carControl.Location = new Point(0, (carControl.Height * index) + 10);
-                carControl.OnItemClick += CarControl_OnItemClick;
-                carControl.OnDeleteClick += CarControl_OnDeleteClick;
-                _pnlResponds.Controls.Add(carControl);
-                index++;
-            }
+            UpdateCars();
+            LoadFromSql();
         }
         private void _btnSettings_Click(object sender, EventArgs e)
         {
@@ -368,6 +384,22 @@ namespace EMS_RS.Forms
         private void MainForm_Activated(object sender, EventArgs e)
         {
             LoadFromSql();
+            if (_btnAddRespond.Visible)
+            {
+                UpdateResponds();
+            }
+            if (_btnAddDoctor.Visible)
+            {
+                UpdateDoctors();
+            }
+            if (_btnAddPatient.Visible)
+            {
+                UpdatePatients();
+            }
+            if (_btnAddCar.Visible)
+            {
+                UpdateCars();
+            }
         }
     }
 }
