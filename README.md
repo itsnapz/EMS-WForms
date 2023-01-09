@@ -25,3 +25,19 @@
 > - #### Většina části aplikace zabírá panel s výjezdy, doktory, pacienty a auty.
 > - #### Pro zobrazení vámi chtěných dat stačí kliknout v navigačním menu co chcete zobrazit.
 
+```c#
+private void UpdateResponds()
+        {
+            _pnlResponds.Controls.Clear();
+            int index = 0;
+            foreach (var respond in _responds)
+            {
+                RespondItemControl control = new(respond);
+                control.Location = new Point(0, (control.Height * index) + 10);
+                control.OnItemClick += Control_OnItemClick;
+                control.OnDeleteClick += Control_OnDeleteClick;
+                _pnlResponds.Controls.Add(control);
+                index++;
+            }
+        }
+```
