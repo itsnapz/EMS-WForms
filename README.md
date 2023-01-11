@@ -21,8 +21,11 @@
 ## 💾 Zobrazení dat 💾
 
 ![image](https://i.imgur.com/R9jHdnN.png)
+
 ![image](https://i.imgur.com/ckzm9V7.png)
+
 ![image](https://i.imgur.com/zFGAfGQ.png)
+
 ![image](https://i.imgur.com/a8wHjB2.png)
 
 > - #### Většina části aplikace zabírá panel s výjezdy, doktory, pacienty a auty.
@@ -51,3 +54,16 @@ private void UpdateResponds()
 
 > - #### Pro změnu hesla stačí otevřít poslední položku v navigačním menu.
 > - #### Zde zadáte vaše současné heslo a vaše nové heslo, poté ho zopakujete.
+
+## ➕ Přidání dat ➕
+
+![image](https://i.imgur.com/IiEIs9v.png)
+
+> - #### Pro přidání vámi určených dat stačí kliknout na tlačítko **Add** ve spodní části navigačního menu.
+> - #### Vždy ve které části jste (Responds, Doctors...), tak tyto data přidáváte.
+
+## 📋 Úprava dat 📋
+
+![image](https://i.imgur.com/0LIbPgM.png)
+
+> - #### Pro úpravu dat stačí kliknout na libovolnou položku z panelu a zobrazí se vám nové okno pro edit této položky.
