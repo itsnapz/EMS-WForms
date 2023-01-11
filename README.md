@@ -21,6 +21,9 @@
 ## 💾 Zobrazení dat 💾
 
 ![image](https://i.imgur.com/R9jHdnN.png)
+![image](https://i.imgur.com/ckzm9V7.png)
+![image](https://i.imgur.com/zFGAfGQ.png)
+![image](https://i.imgur.com/a8wHjB2.png)
 
 > - #### Většina části aplikace zabírá panel s výjezdy, doktory, pacienty a auty.
 > - #### Pro zobrazení vámi chtěných dat stačí kliknout v navigačním menu co chcete zobrazit.
@@ -41,3 +44,10 @@ private void UpdateResponds()
             }
         }
 ```
+
+## 🔐 Změna hesla 🔐
+
+![image](https://i.imgur.com/L3YIaYm.png)
+
+> - #### Pro změnu hesla stačí otevřít poslední položku v navigačním menu.
+> - #### Zde zadáte vaše současné heslo a vaše nové heslo, poté ho zopakujete.
