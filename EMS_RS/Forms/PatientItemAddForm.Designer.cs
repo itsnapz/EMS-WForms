@@ -88,7 +88,7 @@
             // 
             // _pckBirthday
             // 
-            this._pckBirthday.CustomFormat = "";
+            this._pckBirthday.CustomFormat = "yyyy-MM-dd";
             this._pckBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this._pckBirthday.Location = new System.Drawing.Point(373, 29);
             this._pckBirthday.Name = "_pckBirthday";

@@ -58,57 +58,88 @@ namespace EMS_RS.Forms
         {
             _pnlResponds.Controls.Clear();
             int index = 0;
-            foreach (var respond in _responds)
+            for (int i = 0; i < _responds.Count; i++)
             {
-                RespondItemControl control = new(respond);
+                RespondItemControl control = new(_responds[i]);
                 control.Location = new Point(0, (control.Height * index) + 10);
                 control.OnItemClick += Control_OnItemClick;
                 control.OnDeleteClick += Control_OnDeleteClick;
-                _pnlResponds.Controls.Add(control);
                 index++;
+                if (i % 2 == 0)
+                {
+                    control.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    control.BackColor = Color.White;
+                }
+                _pnlResponds.Controls.Add(control);
             }
         }
         private void UpdateDoctors()
-
         {
             _pnlResponds.Controls.Clear();
             int index = 0;
-            foreach (var doctor in _doctors)
+            for (int i = 0; i < _doctors.Count; i++)
             {
-                DoctorItemControl control3 = new(doctor);
+                DoctorItemControl control3 = new(_doctors[i]);
                 control3.Location = new Point(0, (control3.Height * index) + 10);
                 control3.OnItemClick += Control3_OnItemClick;
                 control3.OnDeleteClick += Control3_OnDeleteClick;
-                _pnlResponds.Controls.Add(control3);
                 index++;
+                if (i % 2 == 0)
+                {
+                    control3.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    control3.BackColor = Color.White;
+                }
+                _pnlResponds.Controls.Add(control3);
             }
         }
         private void UpdatePatients()
         {
             _pnlResponds.Controls.Clear();
             int index = 0;
-            foreach (var patient in _patients)
+            for (int i = 0; i < _patients.Count; i++)
             {
-                PatientItemControl control2 = new(patient);
+                PatientItemControl control2 = new(_patients[i], _service);
                 control2.Location = new Point(0, (control2.Height * index) + 10);
                 control2.OnItemClick += Control2_OnItemClick;
                 control2.OnDeleteClick += Control2_OnDeleteClick;
-                _pnlResponds.Controls.Add(control2);
                 index++;
+                if (i % 2 == 0)
+                {
+                    control2.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    control2.BackColor = Color.White;
+                }
+                _pnlResponds.Controls.Add(control2);
             }
         }
         private void UpdateCars()
         {
             _pnlResponds.Controls.Clear();
             int index = 0;
-            foreach (var car in _cars)
+            for (int i = 0; i < _cars.Count; i++)
             {
-                CarItemControl carControl = new(car);
+                CarItemControl carControl = new(_cars[i]);
                 carControl.Location = new Point(0, (carControl.Height * index) + 10);
                 carControl.OnItemClick += CarControl_OnItemClick;
                 carControl.OnDeleteClick += CarControl_OnDeleteClick;
-                _pnlResponds.Controls.Add(carControl);
                 index++;
+                if (i % 2 == 0)
+                {
+                    carControl.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    carControl.BackColor = Color.White;
+                }
+                _pnlResponds.Controls.Add(carControl);
             }
         }
         private void _btnResponds_Click(object sender, EventArgs e)
@@ -284,7 +315,7 @@ namespace EMS_RS.Forms
             DialogResult myResult = MessageBox.Show("Are you sure you want to delete this item?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (myResult == DialogResult.OK)
             {
-                _service.DeletePatient(patient, patient.Patient_Id);
+                _service.DeletePatient(patient.Patient_Id);
                 LoadFromSql();
                 UpdatePatients();
             }
@@ -294,7 +325,7 @@ namespace EMS_RS.Forms
             DialogResult myResult = MessageBox.Show("Are you sure you want to delete this item?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (myResult == DialogResult.OK)
             {
-                _service.DeleteRespond(respond, respond.Respond_Id);
+                _service.DeleteRespond(respond.Respond_Id);
                 LoadFromSql();
                 UpdateResponds();
             }
@@ -319,7 +350,7 @@ namespace EMS_RS.Forms
                     DialogResult myResult = MessageBox.Show("Are you sure you want to delete this role?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (myResult == DialogResult.OK)
                     {
-                        _service.DeleteDoctor(doctor, doctor.Doctor_Id);
+                        _service.DeleteDoctor(doctor.Doctor_Id);
                         LoadFromSql();
                         UpdateDoctors();
                     }
@@ -366,7 +397,7 @@ namespace EMS_RS.Forms
                 DialogResult myResult = MessageBox.Show("Are you sure you want to delete this role?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (myResult == DialogResult.OK)
                 {
-                    _service.DeleteCar(car, car.Car_Id);
+                    _service.DeleteCar(car.Car_Id);
                     LoadFromSql();
                     UpdateCars();
                 }

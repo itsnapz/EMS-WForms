@@ -88,7 +88,8 @@
             // 
             // _pckDate
             // 
-            this._pckDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this._pckDate.CustomFormat = "yyyy-MM-dd";
+            this._pckDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this._pckDate.Location = new System.Drawing.Point(373, 29);
             this._pckDate.Name = "_pckDate";
             this._pckDate.Size = new System.Drawing.Size(101, 23);

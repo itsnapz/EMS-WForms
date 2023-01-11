@@ -55,7 +55,7 @@ namespace EMS_RS.Forms
                         Hospital_Id = _hospital.Hospital_Id,
                         Password = _txtPassword.Text,
                         Call_Sign = _txtCallSign.Text,
-                        Birthday = _pckDate.Value,
+                        Birthday = _pckDate.Value.Date,
                         Reputation = 0,
                     };
                     _service.InsertDoctor(model);

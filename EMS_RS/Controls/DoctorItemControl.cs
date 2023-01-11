@@ -33,11 +33,6 @@ namespace EMS_RS.Controls
             _lblDoctorCallSign.Text = _doctor.Call_Sign.ToString();
             _lblDoctorPhoneNumber.Text = _doctor.Phone_Number.ToString();
             _lblDoctorReputation.Text = _doctor.Reputation.ToString();
-
-            if (_doctor.Doctor_Id%2 == 0)
-            {
-                BackColor = Color.LightGray;
-            }
             if (_doctor.Reputation>=10)
             {
                 _lblDoctorReputation.Location = new Point(_lblDoctorReputation.Location.X - 3, _lblDoctorReputation.Location.Y);

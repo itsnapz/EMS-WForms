@@ -26,6 +26,7 @@ namespace EMS_RS.Forms
         private void PatientItemEditForm_Load(object sender, EventArgs e)
         {
             _cmbSex.DropDownStyle = ComboBoxStyle.DropDownList;
+            _cmbSex.Controls.Clear();
 
             _txtName.Text = _patient.Name;
             _txtSurname.Text = _patient.Surname;
@@ -44,7 +45,7 @@ namespace EMS_RS.Forms
             {
                 Name = _txtName.Text,
                 Surname = _txtSurname.Text,
-                Birthday = _pckDate.Value,
+                Birthday = _pckDate.Value.Date,
                 Sex = _cmbSex.SelectedItem.ToString(),
                 Street = _txtStreet.Text,
                 City = _txtCity.Text,

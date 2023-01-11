@@ -42,7 +42,7 @@ namespace EMS_RS.Forms
                     {
                         Name = _txtPatientName.Text,
                         Surname = _txtPatientSurname.Text,
-                        Birthday = _pckBirthday.Value,
+                        Birthday = _pckBirthday.Value.Date,
                         Sex = _cmbPatientSex.SelectedItem.ToString(),
                         Street = _txtPatientStreet.Text,
                         City = _txtPatientCity.Text,

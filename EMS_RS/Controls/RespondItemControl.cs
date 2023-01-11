@@ -34,10 +34,6 @@ namespace EMS_RS.Controls
             _lblPatientBirth.Text = _respond.Patient.Birthday.ToShortDateString();
             _lblPatientPhoneNumber.Text = _respond.Patient.Phone_Number.ToString();
 
-            if (_respond.Respond_Id%2==0)
-            {
-                BackColor = Color.LightGray;
-            }
             if (_respond.Price>=10000)
             {
                 _lblPrice.Location = new Point(_lblPrice.Location.X - 3, _lblPrice.Location.Y);

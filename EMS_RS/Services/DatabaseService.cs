@@ -475,16 +475,32 @@ namespace EMS_RS.Services
         }
         public void UpdateDoctor(DoctorModel doctor, int Id)
         {
-            try
+            string sql = "UPDATE Doctor SET name = @name, surname = @surname, sex = @sex, rank = @rank, phone_number = @phone, hospital_id = @hospital, password = @password, call_sign = @call, birthday = @birth, reputation = @rep WHERE doctor_id = @Id";
+            using (SqlCommand command = new SqlCommand(@sql, _connection))
             {
-                string cmd = $"UPDATE Doctor SET name = '{doctor.Name}', surname = '{doctor.Surname}', sex = '{doctor.Sex}', rank = '{doctor.Rank}', phone_number = '{doctor.Phone_Number}', hospital_id = '{doctor.Hospital_Id}', password = '{doctor.Password}', call_sign = '{doctor.Call_Sign}', birthday = '{doctor.Birthday}', reputation = '{doctor.Reputation}' WHERE doctor_id = {Id}";
-                SqlCommand command = new(cmd, _connection);
+                command.Parameters.AddWithValue("@name", doctor.Name);
+                command.Parameters.AddWithValue("@surname", doctor.Surname);
+                command.Parameters.AddWithValue("@sex", doctor.Sex);
+                command.Parameters.AddWithValue("@rank", doctor.Rank);
+                command.Parameters.AddWithValue("@phone", doctor.Phone_Number);
+                command.Parameters.AddWithValue("@hospital", doctor.Hospital_Id);
+                command.Parameters.AddWithValue("@password", doctor.Password);
+                command.Parameters.AddWithValue("@call", doctor.Call_Sign);
+                command.Parameters.AddWithValue("@birth", doctor.Birthday);
+                command.Parameters.AddWithValue("@rep", doctor.Reputation);
+                command.Parameters.AddWithValue("@Id", Id);
                 command.ExecuteNonQuery();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //try
+            //{
+            //    string cmd = $"UPDATE Doctor SET name = '{doctor.Name}', surname = '{doctor.Surname}', sex = '{doctor.Sex}', rank = '{doctor.Rank}', phone_number = '{doctor.Phone_Number}', hospital_id = '{doctor.Hospital_Id}', password = '{doctor.Password}', call_sign = '{doctor.Call_Sign}', birthday = '{doctor.Birthday}', reputation = '{doctor.Reputation}' WHERE doctor_id = {Id}";
+            //    SqlCommand command = new(cmd, _connection);
+            //    command.ExecuteNonQuery();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
         public void UpdateDoctorPassword(string password, int Id)
         {
@@ -503,16 +519,31 @@ namespace EMS_RS.Services
         }
         public void UpdatePatient(PatientModel patient, int Id)
         {
-            try
+            string sql = "UPDATE Patient SET name = @name, surname = @surname, birthday = @birth, sex = @sex, street = @street, city = @city, country = @country, zip = @zip, phone_number = @phone WHERE patient_id = @Id";
+            using (SqlCommand command = new SqlCommand(sql, _connection))
             {
-                string cmd = $"UPDATE Patient SET name = '{patient.Name}', surname = '{patient.Surname}', birthday = '{patient.Birthday}', sex = '{patient.Sex}', street = '{patient.Street}', city = '{patient.City}', country = '{patient.Country}', zip = '{patient.Zip}', phone_number = '{patient.Phone_Number}' WHERE patient_id = {Id}";
-                SqlCommand command = new(cmd, _connection);
+                command.Parameters.AddWithValue("@name", patient.Name);
+                command.Parameters.AddWithValue("@surname", patient.Surname);
+                command.Parameters.AddWithValue("@birth", patient.Birthday);
+                command.Parameters.AddWithValue("@sex", patient.Sex);
+                command.Parameters.AddWithValue("@street", patient.Street);
+                command.Parameters.AddWithValue("@city", patient.City);
+                command.Parameters.AddWithValue("@country", patient.Country);
+                command.Parameters.AddWithValue("@zip", patient.Zip);
+                command.Parameters.AddWithValue("@phone", patient.Phone_Number);
+                command.Parameters.AddWithValue("@Id", Id);
                 command.ExecuteNonQuery();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //try
+            //{
+            //    string cmd = $"UPDATE Patient SET name = '{patient.Name}', surname = '{patient.Surname}', birthday = '{patient.Birthday}', sex = '{patient.Sex}', street = '{patient.Street}', city = '{patient.City}', country = '{patient.Country}', zip = '{patient.Zip}', phone_number = '{patient.Phone_Number}' WHERE patient_id = {Id}";
+            //    SqlCommand command = new(cmd, _connection);
+            //    command.ExecuteNonQuery();
+            //}
+            //catch (Exception ex1)
+            //{
+            //    MessageBox.Show(ex1.Message);
+            //}
         }
         public void UpdateCar(CarModel car, int Id)
         {
@@ -527,7 +558,7 @@ namespace EMS_RS.Services
                 MessageBox.Show(ex.Message);
             }
         }
-        public void DeleteRespond(RespondModel respond, int Id)
+        public void DeleteRespond(int Id)
         {
             try
             {
@@ -540,15 +571,43 @@ namespace EMS_RS.Services
             }
             catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
             }
         }
-        public void DeletePatient(PatientModel patient, int Id)
+        public void DeletePatient(int Id)
         {
             try
             {
-                string cmd = $"DELETE FROM Patient WHERE patient_id = @ID";
+                string cmd = $"DELETE FROM Respond WHERE patient_id = @ID";
+                using (SqlCommand command = new SqlCommand(cmd, _connection))
+                {
+                    command.Parameters.AddWithValue("@ID", Id);
+                    command.ExecuteNonQuery();
+                }
+                string cmd2 = $"DELETE FROM Patient WHERE patient_id = @ID";
+                using (SqlCommand command = new SqlCommand(cmd2, _connection))
+                {
+                    command.Parameters.AddWithValue("@ID", Id);
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void DeleteDoctor(int Id)
+        {
+            try
+            {
+                string cmd = $"DELETE FROM Doctor WHERE doctor_id = @ID";
+                using (SqlCommand command = new SqlCommand(cmd, _connection))
+                {
+                    command.Parameters.AddWithValue("@ID", Id);
+                    command.ExecuteNonQuery();
+                }
+                string cmd2 = $"DELETE FROM Respond WHERE doctor_id = @ID";
                 using (SqlCommand command = new SqlCommand(cmd, _connection))
                 {
                     command.Parameters.AddWithValue("@ID", Id);
@@ -560,29 +619,28 @@ namespace EMS_RS.Services
                 MessageBox.Show(ex.Message);
             }
         }
-        public void DeleteDoctor(DoctorModel doctor, int Id)
+        public void DeleteCar(int Id)
         {
-            string cmd = $"DELETE FROM Doctor WHERE doctor_id = @ID";
-            using (SqlCommand command = new SqlCommand(cmd, _connection))
+            try
             {
-                command.Parameters.AddWithValue("@ID", Id);
-                command.ExecuteNonQuery();
-            }
-        }
-        public void DeleteCar(CarModel car, int Id)
-        {
-            string cmd = $"DELETE FROM Car WHERE car_id = @ID";
-            using (SqlCommand command = new SqlCommand(cmd, _connection))
-            {
-                try
+                string cmd = $"DELETE FROM Car WHERE car_id = @ID";
+                using (SqlCommand command = new SqlCommand(cmd, _connection))
                 {
                     command.Parameters.AddWithValue("@ID", Id);
                     command.ExecuteNonQuery();
                 }
-                catch (Exception ex)
+                string cmd2 = $"Delete from Respond WHERE car_id = @ID";
+                using (SqlCommand command = new SqlCommand(cmd, _connection))
                 {
-                    MessageBox.Show(ex.Message);
+                    command.Parameters.AddWithValue("@ID", Id);
+                    command.ExecuteNonQuery();
                 }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -14,19 +14,25 @@ namespace EMS_RS.Controls
 {
     public partial class PatientItemControl : UserControl
     {
+        private DatabaseService _service;
         public delegate void ItemClick(PatientModel patient, PatientItemControl sender);
         public event ItemClick OnItemClick;
         public delegate void DeleteClick(PatientModel patient, PatientItemControl sender);
         public event DeleteClick OnDeleteClick;
-        public PatientModel _patient { get; set; }
-        public PatientItemControl(PatientModel patient)
+        private PatientModel _patient { get; set; }
+        private List<PatientModel> _patients;
+        public PatientItemControl(PatientModel patient, DatabaseService service)
         {
             InitializeComponent();
             _patient = patient;
+            _patients = new();
+            _service = service;
         }
 
         private void PatientItemControl_Load(object sender, EventArgs e)
         {
+            _patients = _service.GetPatients().ToList();
+
             _lblPatientId.Text = _patient.Patient_Id.ToString();
             _lblPatientNameSurname.Text = _patient.Name.ToString() + " " + _patient.Surname.ToString();
             _lblPatientBirthday.Text = _patient.Birthday.ToShortDateString();
@@ -34,11 +40,6 @@ namespace EMS_RS.Controls
             _lblPatientCity.Text = _patient.City.ToString();
             _lblPatientZIP.Text = _patient.Zip.ToString();
             _lblPatientPhoneNumber.Text = _patient.Phone_Number.ToString();
-
-            if (_patient.Patient_Id%2==0)
-            {
-                BackColor = Color.LightGray;
-            }
         }
 
         private void PatientItemControl_Click(object sender, EventArgs e)

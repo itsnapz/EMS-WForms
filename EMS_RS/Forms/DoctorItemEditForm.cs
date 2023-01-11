@@ -66,7 +66,7 @@ namespace EMS_RS.Forms
                 Hospital_Id = _hospital.Hospital_Id,
                 Password = _txtPassword.Text,
                 Call_Sign = _txtCallSign.Text,
-                Birthday = dateTimePicker1.Value,
+                Birthday = dateTimePicker1.Value.Date,
             };
             _service.UpdateDoctor(model, _doctor.Doctor_Id);
             Close();

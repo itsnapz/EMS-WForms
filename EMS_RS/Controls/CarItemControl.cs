@@ -29,11 +29,6 @@ namespace EMS_RS.Controls
             _lblCarId.Text = _car.Car_Id.ToString();
             _lblCarName.Text = _car.Name.ToString();
             _lblCarPlate.Text = _car.Plate.ToString();
-
-            if (_car.Car_Id%2==0)
-            {
-                BackColor = Color.LightGray;
-            }
         }
 
         private void CarItemControl_Click(object sender, EventArgs e)
