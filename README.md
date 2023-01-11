@@ -32,7 +32,9 @@
 > - #### Pro zobrazení vámi chtěných dat stačí kliknout v navigačním menu co chcete zobrazit.
 
 ```c#
-_pnlResponds.Controls.Clear();
+private void UpdateResponds()
+        {
+            _pnlResponds.Controls.Clear();
             int index = 0;
             for (int i = 0; i < _responds.Count; i++)
             {
@@ -51,6 +53,7 @@ _pnlResponds.Controls.Clear();
                 }
                 _pnlResponds.Controls.Add(control);
             }
+        }
 ```
 
 ## 🔐 Změna hesla 🔐
