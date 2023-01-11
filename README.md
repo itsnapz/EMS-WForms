@@ -32,20 +32,25 @@
 > - #### Pro zobrazení vámi chtěných dat stačí kliknout v navigačním menu co chcete zobrazit.
 
 ```c#
-private void UpdateResponds()
-        {
-            _pnlResponds.Controls.Clear();
+_pnlResponds.Controls.Clear();
             int index = 0;
-            foreach (var respond in _responds)
+            for (int i = 0; i < _responds.Count; i++)
             {
-                RespondItemControl control = new(respond);
+                RespondItemControl control = new(_responds[i]);
                 control.Location = new Point(0, (control.Height * index) + 10);
                 control.OnItemClick += Control_OnItemClick;
                 control.OnDeleteClick += Control_OnDeleteClick;
-                _pnlResponds.Controls.Add(control);
                 index++;
+                if (i % 2 == 0)
+                {
+                    control.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    control.BackColor = Color.White;
+                }
+                _pnlResponds.Controls.Add(control);
             }
-        }
 ```
 
 ## 🔐 Změna hesla 🔐
